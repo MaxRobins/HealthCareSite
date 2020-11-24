@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CreateRecord.aspx" />
+    <Content Include="Homepage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +78,13 @@
     </Compile>
     <Compile Include="CreateRecord.aspx.designer.cs">
       <DependentUpon>CreateRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Homepage.aspx.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homepage.aspx.designer.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
