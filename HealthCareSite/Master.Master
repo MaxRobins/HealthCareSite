@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="HealthCareSite.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="master.css" />
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<%--    ~~~~~~used for dropdown button and tinymce~~~~--%>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+    <script src="https://cdn.tiny.cloud/1/i54bprw5m2uj875trfa1pvdzesz2t76vsgtu8w6c0d0wpb6h/tinymce/5/tinymce.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand text-light" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <asp:Button ID="btnUploadUsers" runat="server" Text="Upload Users"  Visible="false" CssClass="btn btn-light ml-2 mr-2"></asp:Button>
+                    </li>
+                    <li class="nav-item">
+                        <asp:Button ID="btnManageUsers" runat="server" Text="Manage Users" Visible="false" CssClass="btn btn-light ml-2 mr-2"></asp:Button>
+                    </li>
+                    <li class="nav-item">
+                        <asp:Button ID="btnSearch" runat="server" Text="Search" Visible="false" CssClass="btn btn-light ml-2 mr-2"></asp:Button>
+                    </li>
+                </ul>
+                <div class="form-inline my-2 my-lg-0">
+                    <asp:Label ID="lblUserName" runat="server" CssClass="mr-3"></asp:Label>
+                    <asp:Label ID="lblUserType" runat="server" CssClass="mr-3"></asp:Label>
+                    <asp:Button ID="btnLogout" runat="server" Text="Logout" class="btn redbtn" />
+                </div>
+            </div>
+        </nav>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
