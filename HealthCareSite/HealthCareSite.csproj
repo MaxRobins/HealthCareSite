@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CreateRecord.aspx" />
+    <Content Include="CustomControls\ProfileControl.ascx" />
     <Content Include="Homepage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -78,6 +79,13 @@
     </Compile>
     <Compile Include="CreateRecord.aspx.designer.cs">
       <DependentUpon>CreateRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ProfileControl.ascx.cs">
+      <DependentUpon>ProfileControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ProfileControl.ascx.designer.cs">
+      <DependentUpon>ProfileControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Homepage.aspx.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
