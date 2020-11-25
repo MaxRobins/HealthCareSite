@@ -21,29 +21,71 @@
     padding: 0 10px;
     border-bottom: none;
 }
+
+       .img {
+           height:54px;
+
+       }
    </style>
     <br />
     <div class="container-fluid">
         <div class="row">
             <%-- left side of screen --%>
-            <div class="col-6" id="left">
+            <div class="col-auto" id="left">
                 <%-- Area fpr the user's profile --%>
-                <div class="container" id="ProfileInformation">
-                    <div class="row">
-                        <h2>Sample Test</h2>
-                        <br />
-                        <fieldset class="scheduler-border">
-                             <legend class="scheduler-border">Instructions</legend>
-                    
-                         </fieldset>
-                    </div>                                 
-                </div>
+                              
+                <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">Profile</legend>
+                        <div class="row">   
+                            <asp:Image CssClass="img-fluid rounded" ID="imgProfile" runat="server" />
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>
+
+                            </div>
+                            <div class="col">
+                                <asp:Label ID="lblLastName" runat="server" Text="Last Name"></asp:Label>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                 <asp:Label ID="lblEmail" runat="server" Text="Name@Email.com"></asp:Label>
+                            </div>
+
+                            <div class="col">
+                                 <asp:Label ID="lblPhone" runat="server" Text="555-555-5555"></asp:Label>
+                            </div>
+                
+                        </div>
+
+                    <asp:Panel ID="pnlDoctorInfo" runat="server">
+                        <div class="row">
+                                <div class="col">
+                                    <asp:Label ID="lblLocation" runat="server" Text="123 Place Road"></asp:Label>
+                                </div>
+
+                                <div class="col">
+                                        <asp:Label ID="lblType" runat="server" Text="Cardiologist"></asp:Label>
+                                </div>
+                        </div>
+                    </asp:Panel>
+                        
+                    </fieldset>                                               
+                
             </div>
-            <%-- middle of screen --%>
-            <div class="col-6" id="middle"></div>
-            <%-- right side of screen --%>
-            <div class="col-6" id="right"></div>
-        </div>
+            <%-- Right of screen --%>
+            <div class="col-auto" id="middle">
+                <asp:Panel ID="pnlTable" runat="server">
+
+                    <div class="table-responsive-lg">
+                        <asp:GridView  CssClass="respo" ID="gvAppointments" runat="server"></asp:GridView>
+                    </div>
+
+                </asp:Panel>                
+            </div>
+           
 
         <%-- 2nd row --%>
         <div class="row">

@@ -11,7 +11,7 @@ namespace HealthCareSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            imgProfile.ImageUrl = "Images/defaultImage.png";
         }
     }
 }
