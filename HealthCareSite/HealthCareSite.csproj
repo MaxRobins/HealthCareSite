@@ -68,9 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CreateRecord.aspx" />
-    <Content Include="CustomControls\ProfileControl.ascx" />
-    <Content Include="Homepage.aspx" />
-    <Content Include="Images\defaultImage.png" />
+    <Content Include="Login.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="ScheduleAppointment.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -81,19 +81,12 @@
     <Compile Include="CreateRecord.aspx.designer.cs">
       <DependentUpon>CreateRecord.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\ProfileControl.ascx.cs">
-      <DependentUpon>ProfileControl.ascx</DependentUpon>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CustomControls\ProfileControl.ascx.designer.cs">
-      <DependentUpon>ProfileControl.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Homepage.aspx.cs">
-      <DependentUpon>Homepage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Homepage.aspx.designer.cs">
-      <DependentUpon>Homepage.aspx</DependentUpon>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
@@ -103,6 +96,20 @@
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleAppointment.aspx.cs">
+      <DependentUpon>ScheduleAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ScheduleAppointment.aspx.designer.cs">
+      <DependentUpon>ScheduleAppointment.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />
@@ -116,7 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Utilities\Utilities.csproj">
-      <Project>{6f63f31e-f419-48e8-a8af-0bda587415f6}</Project>
+      <Project>{7470d362-e62e-4902-9638-668c5ca44835}</Project>
       <Name>Utilities</Name>
     </ProjectReference>
   </ItemGroup>
