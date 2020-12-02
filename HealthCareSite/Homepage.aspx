@@ -14,6 +14,7 @@
     <script>
         $(document).ready(function () {
             $('#<%= gvRecords.ClientID %>').DataTable();
+
         });
     </script>
     <style>
