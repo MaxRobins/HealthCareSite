@@ -68,7 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CreateRecord.aspx" />
+    <Content Include="Homepage.aspx" />
+    <Content Include="Images\defaultImage.png" />
     <Content Include="Login.aspx" />
+    <Content Include="Register.aspx" />
     <Content Include="ScheduleAppointment.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -79,6 +82,13 @@
     </Compile>
     <Compile Include="CreateRecord.aspx.designer.cs">
       <DependentUpon>CreateRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Homepage.aspx.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homepage.aspx.designer.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -95,6 +105,13 @@
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ScheduleAppointment.aspx.cs">
       <DependentUpon>ScheduleAppointment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
