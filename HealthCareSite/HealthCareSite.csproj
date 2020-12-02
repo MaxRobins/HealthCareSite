@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CreateRecord.aspx" />
+    <Content Include="Homepage.aspx" />
+    <Content Include="Images\defaultImage.png" />
     <Content Include="Login.aspx" />
     <Content Include="ScheduleAppointment.aspx" />
     <Content Include="Web.config" />
@@ -79,6 +81,13 @@
     </Compile>
     <Compile Include="CreateRecord.aspx.designer.cs">
       <DependentUpon>CreateRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Homepage.aspx.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homepage.aspx.designer.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
