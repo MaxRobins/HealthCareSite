@@ -6,31 +6,34 @@
         <div class="col-xl-6 p-2 mr-3 ml-3 mt-3">
             <div class="form-group">
                 <asp:Label ID ="lblFirstName" runat="server" Text="First Name" CssClass="p-2 mr-3 ml-3"></asp:Label>
-                <input type="text" class="form-control" placeholder="..." />
+                <asp:TextBox ID ="txtFirstName" runat ="server"/>
             </div>
             <div class="form-group">
                 <asp:Label ID ="lblLastName" runat="server" Text="Last Name" CssClass="p-2 mr-3 ml-3"></asp:Label>
-                <input type="text" class="form-control" placeholder="..." />
+                <asp:TextBox ID ="txtLastName" runat ="server"/>
             </div>
             <div class="form-group">
                 <asp:Label ID ="lblPhone" runat="server" Text="Phone Number" CssClass="p-2 mr-3 ml-3"></asp:Label>
-                <input type="text" class="form-control" placeholder="..." />
+                <asp:TextBox ID ="txtPhoneNumber" runat ="server"/>
             </div>
         </div>
         <div class="col-xl-6 p-2 mr-3 ml-3 mt-3">
             <div class="form-group">
                 <asp:Label ID="lblDescription" runat="server" Text="Description" CssClass="p-2 mr-3"></asp:Label>
-                <textarea class="form-control" rows="4" id="Description"></textarea>
+                <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
             </div>
             <div class="form-group">
                 <asp:Label ID="lblPainLevel" runat="server" Text="Level of Pain"></asp:Label>
-                <select class="form-control" id="painLevel">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
+                <asp:DropDownList id="ColorList"
+                    runat="server">
+
+                  <asp:ListItem Selected="1" Value="1">1</asp:ListItem>
+                  <asp:ListItem Value="2">2</asp:ListItem>
+                  <asp:ListItem Value="3">3</asp:ListItem>
+                  <asp:ListItem Value="4">4</asp:ListItem>
+                  <asp:ListItem Value="5">5</asp:ListItem>
+
+               </asp:DropDownList>
             </div>
         </div>
     </div>
@@ -106,15 +109,15 @@
         <div class="col-xl-6 p-2 mr-3 ml-3 mt-3">
             <div class="form-group">
                 <asp:Label ID ="lblAddress" runat="server" Text="Address" CssClass="p-2 mr-3 ml-3"></asp:Label>
-                <input type="text" class="form-control" placeholder="..." />
+                <asp:TextBox ID ="txtAddress" runat ="server"/>
             </div>
             <div class="form-group">
                 <asp:Label ID ="lblCity" runat="server" Text="City" CssClass="p-2 mr-3 ml-3"></asp:Label>
-                <input type="text" class="form-control" placeholder="..." />
+                <asp:TextBox ID ="txtCity" runat ="server"/>
             </div>
             <div class="form-group">
-                <asp:Label ID ="lblZio" runat="server" Text="Zip Code" CssClass="p-2 mr-3 ml-3"></asp:Label>
-                <input type="text" class="form-control" placeholder="..." />
+                <asp:Label ID ="lblZip" runat="server" Text="Zip Code" CssClass="p-2 mr-3 ml-3"></asp:Label>
+                <asp:TextBox ID ="txtZipCode" runat ="server"/>
             </div>
             <div class="form-group">
 	            <label for="state" class="col-sm-2 control-label">State</label>
@@ -180,11 +183,11 @@
         <div class="col-xl-6 p-2 mr-3 ml-3 mt-3">
             <div class="form-group">
                 <asp:Label ID ="lblEmailAddress" runat="server" Text="Email Address" CssClass="p-2 mr-3 ml-3"></asp:Label>
-                <input type="text" class="form-control" placeholder="..." />
+                <asp:TextBox ID ="txtEmail" runat ="server"/>
             </div>
         </div>
     </div>
     <div class="d-flex justify-content-end p-2 mb-5 mr-5">
-        <button type="button" class="btn btn-primary btn-lg">Submit</button>
+        <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary btn-lg" OnClick="btnSubmit_Click" />
     </div>
 </asp:Content>

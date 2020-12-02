@@ -29,6 +29,7 @@ namespace HealthCareSite
             objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "GetAppointments";
+            objCommand.Parameters.AddWithValue("@doctor", ddlDoctor.SelectedItem.Text);
             DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
             gvAppointments.DataSource = myDS;
             gvAppointments.DataBind();
@@ -54,19 +55,24 @@ namespace HealthCareSite
         protected void gvAppointments_RowEditing(Object sender, System.Web.UI.WebControls.GridViewEditEventArgs e)
 
         {
+            Response.Write("roweditingfired");
             gvAppointments.EditIndex = e.NewEditIndex;
+            ShowAppointments();
         }
         protected void gvAppointments_RowUpdating(Object sender, System.Web.UI.WebControls.GridViewUpdateEventArgs e)
         {
             int rowIndex = e.RowIndex;
+            
 
-            TextBox day = (TextBox)gvAppointments.Rows[e.RowIndex].Cells[0].FindControl("Day");
-            TextBox time = (TextBox)gvAppointments.Rows[e.RowIndex].Cells[1].FindControl("Time");
-            TextBox firstName = (TextBox)gvAppointments.Rows[e.RowIndex].Cells[2].FindControl("FirstName");
-            TextBox lastName = (TextBox)gvAppointments.Rows[e.RowIndex].Cells[3].FindControl("LastName");
-            TextBox doctor = (TextBox)gvAppointments.Rows[e.RowIndex].Cells[4].FindControl("Doctor");
+            string day = gvAppointments.Rows[e.RowIndex].Cells[0].Text;
+            string time = gvAppointments.Rows[e.RowIndex].Cells[1].Text;
+            string firstName = ((TextBox)(gvAppointments.Rows[e.RowIndex].Cells[2].Controls[0])).Text;
+            string lastName = ((TextBox)(gvAppointments.Rows[e.RowIndex].Cells[3].Controls[0])).Text;
+            string doctor = gvAppointments.Rows[e.RowIndex].Cells[4].Text;
+            //string id = gvAppointments.Rows[e.RowIndex].Cells[5].Text;
+            int id = Convert.ToInt32(gvAppointments.DataKeys[e.RowIndex]["Id"]);
 
-            if (firstName.Text != "" || lastName.Text != "")
+            if (firstName == "" || lastName == "")
             {
                 gvAppointments.EditIndex = -1;
             }
@@ -74,20 +80,19 @@ namespace HealthCareSite
             {
                 SqlCommand objUpdate = new SqlCommand();
                 objCommand.CommandType = CommandType.StoredProcedure;
-                objCommand.CommandText = "InsertAppointment";
+                objCommand.CommandText = "updateAppointment";
 
-                objCommand.Parameters.AddWithValue("@day", day.Text);
-                objCommand.Parameters.AddWithValue("@time", time.Text);
-                objCommand.Parameters.AddWithValue("@fName", firstName.Text);
-                objCommand.Parameters.AddWithValue("@lName", lastName.Text);
-                objCommand.Parameters.AddWithValue("@doctor", doctor.Text);
+                objCommand.Parameters.AddWithValue("@day", day);
+                objCommand.Parameters.AddWithValue("@time", time);
+                objCommand.Parameters.AddWithValue("@firstName", firstName);
+                objCommand.Parameters.AddWithValue("@lastName", lastName);
+                objCommand.Parameters.AddWithValue("@doctor", doctor);
+                objCommand.Parameters.AddWithValue("@id", id);
 
                 DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
-                gvAppointments.DataSource = myDS;
-                gvAppointments.DataBind();
-
+                
                 gvAppointments.EditIndex = -1;
-
+                ShowAppointments();
             }
 
         }
@@ -95,6 +100,7 @@ namespace HealthCareSite
 
         {
             gvAppointments.EditIndex = -1;
+            ShowAppointments();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="HealthCareSite.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="HealthCareSite.Register" %>
 
 <!DOCTYPE html>
 
@@ -16,17 +16,21 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="d-flex justify-content-center">
+        <div class="f-flex justify-content-center">
             <div class="card" style="width:25rem">
                 <div class="card-body">
-                    <h5 class="card-title">
-                        Login
+                    <h5>
+                        Register
                     </h5>
                     <div class="form-group">
                         <label for="user">Name:</label>
                         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="Login_Click" />
-                        <asp:Button ID="btnRegsiter" runat="server" Text="Register" OnClick="Regsiter_Click" />
+                        <asp:RadioButtonList ID ="userType" runat ="server" CssClass="text-left">
+                            <asp:ListItem>Doctor</asp:ListItem>
+                            <asp:ListItem>Patient</asp:ListItem>
+                        </asp:RadioButtonList>
+                        <asp:Button ID="btnRegister" runat="server" Text="Register" />
+                        <asp:Button ID="btnLogin" runat="server" Text="Back to Login" />
                     </div>
                 </div>
             </div>

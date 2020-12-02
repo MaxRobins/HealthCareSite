@@ -9,16 +9,18 @@
                   <asp:ListItem Value="Robinson">Robinson</asp:ListItem>
     </asp:DropDownList>
     <asp:GridView ID="gvAppointments" runat="server" AutoGenerateColumns="False" CssClass="ml-auto mr-auto" 
-        OnRowEditing="gvAppointments_RowEditing" OnRowUpdating ="gvAppointments_RowUpdating"  OnRowCancelingEdit = "gvAppointments_RowCancelingEdit" 
-                 OnSelectedIndexChanged="gvAppointments_SelectedIndexChanged">
+       OnRowEditing="gvAppointments_RowEditing" OnRowCancelingEdit = "gvAppointments_RowCancelingEdit" 
+        OnRowUpdating ="gvAppointments_RowUpdating" DataKeyNames ="Id">
         <Columns>
             <asp:BoundField HeaderText="Day" DataField="Day" ReadOnly ="True" />
             <asp:BoundField DataField="Time" HeaderText="Time" ReadOnly ="True"  />
             <asp:BoundField HeaderText="FirstName" DataField="FirstName" />
             <asp:BoundField DataField="LastName" HeaderText="LastName" />
             <asp:BoundField DataField="Doctor" HeaderText="Doctor" ReadOnly ="True"  />
-            
+
             <asp:CommandField HeaderText="Schedule" ShowEditButton="True" />
+            
+            
             
         </Columns>
     </asp:GridView>
