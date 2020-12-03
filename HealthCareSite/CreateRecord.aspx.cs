@@ -21,9 +21,9 @@ namespace HealthCareSite
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (txtFirstName.Text == "")
+            /*if (txtFirstName.Text == "")
             {
-                return;
+                lblDisplay.Text = "empty name";
             }
             else
             {
@@ -38,8 +38,21 @@ namespace HealthCareSite
                 objCommand.Parameters.AddWithValue("@city", txtCity.Text);
                 objCommand.Parameters.AddWithValue("@zipCode", txtZipCode.Text);
                 objCommand.Parameters.AddWithValue("@emailAddress", txtEmail.Text);
+
+                int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
+                if(returnValue > 0)
+                {
+                    lblDisplay.Text = "record was created";
+                }
+                else
+                {
+                    btnSubmit.Visible = false;
+                    lblDisplay.Text = "record was not created";
+                }
             }
-            //Response.Redirect("ScheduleAppointment.aspx");
+            //Response.Redirect("ScheduleAppointment.aspx");*/
+            lblDisplay.Text = "sdlsdm";
+            Response.Write("dskpksmdksm");
         }
     }
 }
