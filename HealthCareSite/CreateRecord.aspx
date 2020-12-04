@@ -184,10 +184,12 @@
             <div class="form-group">
                 <asp:Label ID ="lblEmailAddress" runat="server" Text="Email Address" CssClass="p-2 mr-3 ml-3"></asp:Label>
                 <asp:TextBox ID ="txtEmail" runat ="server"/>
+               
             </div>
         </div>
     </div>
     <div class="d-flex justify-content-end p-2 mb-5 mr-5">
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary btn-lg" OnClick="btnSubmit_Click" />
     </div>
+     <asp:Label ID="lblDisplay" runat="server" Font-Bold="true"></asp:Label>
 </asp:Content>
