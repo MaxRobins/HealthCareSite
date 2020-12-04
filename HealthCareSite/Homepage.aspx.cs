@@ -31,23 +31,22 @@ namespace HealthCareSite
                 //get the User Name and User Type from the session storage
                 userName = (string)Session["userName"];
                 userType = (string)Session["userType"];
-                //use those values to determine which tables to show
 
-
-                string strSQL = "SELECT FirstName, LastName, Doctor " +
-                             "FROM Appointments";
-
-                //perform the sql query and get the dataset
-                myDS = objDB.GetDataSet(strSQL);
-                //place result into the Gridview
-                gvRecords.DataSource = myDS;
-                gvRecords.DataBind();
-
-
+                 //set up the page
+                SetupPage();
+                    
 
                 imgProfile.ImageUrl = "Images/defaultImage.png";
             }
-            gvRecords.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+            if (IsPostBack)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Call", "pageLoad()", true);
+                 //gvRecords.HeaderRow.TableSection = TableRowSection.TableHeader;
+                 //gvAllDoctors.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
+          
+
         }
 
         protected void gvRecords_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -71,19 +70,71 @@ namespace HealthCareSite
             
             if (userType == "Doctor")
             {
-                //
+                //hide the table used for patients
+                pnlPatientTable.Visible = false;
+                pnlCard.Visible = false;
+                pnlDetails.Visible = true;
+
+                //use those values to determine which tables to show
+                string strSQL = "SELECT ID,FirstName, LastName, Doctor " +
+                             "FROM Appointments";
+
+                //perform the sql query and get the dataset
+                myDS = objDB.GetDataSet(strSQL);
+                //place result into the Gridview
+                gvRecords.DataSource = myDS;
+                gvRecords.DataBind();
+
+                gvRecords.HeaderRow.TableSection = TableRowSection.TableHeader;
+
             }
 
             if (userType == "Patient")
             {
                 //if the user is a patient then hide the doctor information
                 pnlDoctorInfo.Visible = false;
+                pnlDoctorTable.Visible = false;
+
+                //use those values to determine which tables to show
+                string strSQL = "SELECT FirstName, LastName, DoctorType, OfficeLocation, Email, PhoneNumber " +
+                             "FROM TP_Users " + 
+                             "WHERE UserType = 'Doctor'";
+
+                //perform the sql query and get the dataset
+                myDS = objDB.GetDataSet(strSQL);
+                //place result into the Gridview
+                gvAllDoctors.DataSource = myDS;
+                gvAllDoctors.DataBind();
+
+                //store the reviewIDs in the data keys collection
+                String[] names = new string[1];
+                names[0] = "Id";
+                gvAllDoctors.DataKeyNames = names;
+
+                gvAllDoctors.HeaderRow.TableSection = TableRowSection.TableHeader;
+
             }
-
-            
-
+         
         }
-           
 
+        protected void gvAllDoctors_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument.ToString());
+
+            if (e.CommandName == "Schedule")
+            {
+
+            }
+        }
+
+        protected void gvAllDoctors_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            //check if the row is the header row
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                //add the thead and tbody section programatically
+                e.Row.TableSection = TableRowSection.TableHeader;
+            }
+        }
     }
 }

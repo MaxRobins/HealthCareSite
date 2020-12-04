@@ -10,13 +10,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
 
-
-    <script>
-        $(document).ready(function () {
-            $('#<%= gvRecords.ClientID %>').DataTable();
-
-        });
-    </script>
     <style>
         fieldset.scheduler-border {
             border: 2px groove #dedede !important;
@@ -41,10 +34,11 @@
         }
     </style>
     <br />
+    <asp:ScriptManager ID="sm" runat="server"></asp:ScriptManager>
     <div class="container-fluid">
         <div class="row">
             <div class="col-3">
-                <%-- Area fpr the user's profile --%>
+                <%-- Top Row --%>
 
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Profile</legend>
@@ -90,44 +84,155 @@
             </div>
             <div class="col-auto">
                 <div class="container-fluid">
-                    <div class="card">                  
-                        <div class="card-body">
-                            <h5 class="card-title">Schedule Appointments</h5>
-                            <p class="card-text">
-                                <asp:Label ID="lblCard" runat="server" Text="Click Below to schedule appointments"></asp:Label></p>
-                            <asp:Button ID="btnAppointment" CssClass="btn-outline-danger" runat="server" Text="Schedule Appiontment" OnClick="btnAppointment_Click" />
+                    <asp:Panel ID="pnlCard" runat="server">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Instructions</h5>
+                                <h4>Search For a Doctor</h4>
+                                <p class="card-text">
+                                    <asp:Label ID="lblCard" runat="server" Text="Search the table for a doctor. You can Filter the table to find a specialist. Once you have found the doctor, you can hit the click the button to schedule an appointment"></asp:Label>
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    </asp:Panel>
+
                     <br />
+
                     <div class="dtr-control">
-                    <asp:GridView ID="gvRecords" runat="server" OnRowDataBound="gvRecords_RowDataBound" Width="456px" AutoGenerateColumns="False">
-                        <Columns>
-                            <asp:BoundField DataField="FirstName" HeaderText="First Name" />
-                            <asp:BoundField DataField="LastName" HeaderText="Last Name" />
-                            <asp:BoundField DataField="Doctor" HeaderText="Doctor" />
-                            <asp:TemplateField>
-                                <ItemTemplate>
-                                    <asp:Button ID="btnSelect" runat="server" Text="Button"/>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
-                    </asp:GridView>
-                </div>
+
+                        <%-- Table for doctor page --%>
+                        <asp:Panel ID="pnlDoctorTable" runat="server">
+                            <asp:GridView ID="gvRecords" runat="server" OnRowDataBound="gvRecords_RowDataBound" Width="456px" AutoGenerateColumns="False">
+                                <Columns>
+                                    <asp:BoundField DataField="FirstName" HeaderText="First Name" />
+                                    <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                                    <asp:BoundField DataField="Doctor" HeaderText="Doctor" />
+                                    <asp:ButtonField ButtonType="Button" CommandName="Details" Text="Details" />
+                                </Columns>
+                            </asp:GridView>
+                        </asp:Panel>
+                        <%-- table for patient page --%>
+                        <asp:Panel ID="pnlPatientTable" runat="server">
+                            <asp:GridView ID="gvAllDoctors" runat="server" AutoGenerateColumns="False" OnRowCommand="gvAllDoctors_RowCommand" OnRowDataBound="gvAllDoctors_RowDataBound">
+                                <Columns>
+                                    <asp:BoundField DataField="FirstName" HeaderText="First Name" />
+                                    <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                                    <asp:BoundField DataField="DoctorType" HeaderText="Type" />
+                                    <asp:BoundField DataField="OfficeLocation" HeaderText="Office" />
+                                    <asp:ButtonField ButtonType="Button" CommandName="Schedule" Text="Schedule" />
+                                </Columns>
+                            </asp:GridView>
+                        </asp:Panel>
+                    </div>
 
                 </div>
             </div>
-        </div>
+            <div class="col-auto">
+                <%-- Panel for showing Appointment details after clicking --%>
+                <asp:Panel ID="pnlDetails" runat="server" Visible="false">
+                    <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">Appointment Details</legend>
 
+                        <div class="container-fluid">
+                            <%-- Show the Initial Time and Date for the appointment --%>
+                            <div class="row">
+                                <div class="col">
+                                    <asp:Label ID="lblPatientFirst" runat="server" Text="First Name"></asp:Label>
+                                </div>
+                                <div class="col">
+                                    <asp:Label ID="lblPatientLast" runat="server" Text="Last Name"></asp:Label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <asp:Label ID="lblDay" runat="server" Text="Appointment Day"></asp:Label>
+
+                                </div>
+                                <div class="col">
+                                    <asp:Label ID="lblTime" runat="server" Text="Appointment Time"></asp:Label>
+
+                                </div>
+                            </div>
+                            <%-- Data from the reocrd for appointment --%>
+                            <div class="row">
+                                <div class="col">
+                                    <asp:Label ID="lblDOB" runat="server" Text="Date of Birth"></asp:Label>
+
+                                </div>
+                                <div class="col">
+                                    <asp:Label ID="lblGender" runat="server" Text="Gender"></asp:Label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <asp:Label ID="lblMail" runat="server" Text="Email "></asp:Label>
+
+                                </div>
+
+                                <div class="col">
+                                    <asp:Label ID="lblNumber" runat="server" Text="Phone Number "></asp:Label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <asp:Label ID="lblSymptons" runat="server" Text="Symptoms"></asp:Label>
+
+                                </div>
+                                <div class="col">
+                                    <asp:Label ID="lblPainLevel" runat="server" Text="Level of Pain"></asp:Label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4"></div>
+                                <div class="col-4">
+                                    <asp:Button ID="btnEdit" runat="server" Text="Edit Appointment" />
+                                </div>
+                                <div class="col-4"></div>
+
+                            </div>
+
+                            <%-- End of Details data --%>
+                        </div>
+
+                    </fieldset>
+
+                </asp:Panel>
+            </div>
+        </div>
+        <%-- Bottom Row --%>
         <div class="row">
             <div class="col-2"></div>
             <div class="col-auto">
-
             </div>
             <div class="col-2"></div>
         </div>
     </div>
 
 
+    <script>
 
+        function pageLoad() {
+            $(document).ready(function () {
+                $('#<%= gvAllDoctors.ClientID %>').DataTable();
+            });
+
+            $(document).ready(function () {
+                $('#<%= gvRecords.ClientID %>').DataTable();
+            });
+        }
+
+
+
+    </script>
 
 </asp:Content>
