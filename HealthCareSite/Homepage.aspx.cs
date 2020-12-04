@@ -61,7 +61,7 @@ namespace HealthCareSite
 
         protected void btnAppointment_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ScheduleAppointment.aspx");
+            Response.Redirect("CreateRecord.aspx");
         }
 
         //method for setting up the page layout based on the user type

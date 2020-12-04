@@ -17,10 +17,15 @@ namespace HealthCareSite
         DBConnect objDB = new DBConnect();
         SqlCommand objCommand = new SqlCommand();
         string strSQL;
+        String userName = "";
+        String userType = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                (this.Master as Master).SetNavBar();
+                userName = (string)Session["userName"];
+                userType = (string)Session["userType"];
                 //ShowAppointments();
             }
         }
@@ -55,6 +60,8 @@ namespace HealthCareSite
         protected void gvAppointments_RowEditing(Object sender, System.Web.UI.WebControls.GridViewEditEventArgs e)
 
         {
+            
+            
             Response.Write("roweditingfired");
             gvAppointments.EditIndex = e.NewEditIndex;
             ShowAppointments();
@@ -63,7 +70,6 @@ namespace HealthCareSite
         {
             int rowIndex = e.RowIndex;
             
-
             string day = gvAppointments.Rows[e.RowIndex].Cells[0].Text;
             string time = gvAppointments.Rows[e.RowIndex].Cells[1].Text;
             string firstName = ((TextBox)(gvAppointments.Rows[e.RowIndex].Cells[2].Controls[0])).Text;

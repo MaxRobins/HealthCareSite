@@ -14,9 +14,13 @@ namespace HealthCareSite
         DBConnect objDB = new DBConnect();
         SqlCommand objCommand = new SqlCommand();
         string strSQL;
+        String userName = "";
+        String userType = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            (this.Master as Master).SetNavBar();
+            userName = (string)Session["userName"];
+            userType = (string)Session["userType"];
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -44,12 +48,10 @@ namespace HealthCareSite
                 objCommand.Parameters.AddWithValue("@symptoms", cblSymptoms.SelectedValue);
 
                 int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
-
-                //Response.Redirect("home.aspx");
+                
                 if (returnValue > 0)
                 {
-                    lblDisplay.Text = "was added";
-                    //Response.Redirect("restaurant.aspx");
+                    Response.Redirect("ScheduleAppointment.aspx");
                 }
                 else
                 {
@@ -57,7 +59,7 @@ namespace HealthCareSite
                 }
             }
 
-            //Response.Redirect("ScheduleAppointment.aspx");
+            
 
         }
     }
