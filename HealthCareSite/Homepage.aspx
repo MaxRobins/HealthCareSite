@@ -90,21 +90,26 @@
             </div>
             <div class="col-auto">
                 <div class="container-fluid">
-                    <div class="card">
-                        <img class="card-img-top" src="Images/defaultImage" alt="Card image cap">
+                    <div class="card">                  
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5 class="card-title">Schedule Appointments</h5>
+                            <p class="card-text">
+                                <asp:Label ID="lblCard" runat="server" Text="Click Below to schedule appointments"></asp:Label></p>
+                            <asp:Button ID="btnAppointment" CssClass="btn-outline-danger" runat="server" Text="Schedule Appiontment" OnClick="btnAppointment_Click" />
                         </div>
                     </div>
                     <br />
                     <div class="dtr-control">
-                    <asp:GridView ID="gvRecords" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvRecords_RowDataBound" Width="456px">
+                    <asp:GridView ID="gvRecords" runat="server" OnRowDataBound="gvRecords_RowDataBound" Width="456px" AutoGenerateColumns="False">
                         <Columns>
-                            <asp:BoundField DataField="Title" HeaderText="Title" />
-                            <asp:BoundField DataField="Authors" HeaderText="Authors" />
-                            <asp:BoundField DataField="BasePrice" HeaderText="Price" />
+                            <asp:BoundField DataField="FirstName" HeaderText="First Name" />
+                            <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                            <asp:BoundField DataField="Doctor" HeaderText="Doctor" />
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:Button ID="btnSelect" runat="server" Text="Button"/>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </div>
