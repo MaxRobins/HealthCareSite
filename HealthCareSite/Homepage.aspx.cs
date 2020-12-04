@@ -16,12 +16,24 @@ namespace HealthCareSite
         DBConnect objDB = new DBConnect();
         DataSet myDS;
         SqlCommand objCommand = new SqlCommand();
+        String userName = "";
+        String userType = "";
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
             if (!IsPostBack)
             {
+
+                (this.Master as Master).SetNavBar();
+
+                //get the User Name and User Type from the session storage
+                userName = (string)Session["userName"];
+                userType = (string)Session["userType"];
+                //use those values to determine which tables to show
+
+
                 string strSQL = "SELECT FirstName, LastName, Doctor " +
                              "FROM Appointments";
 
@@ -30,7 +42,7 @@ namespace HealthCareSite
                 //place result into the Gridview
                 gvRecords.DataSource = myDS;
                 gvRecords.DataBind();
-               
+
 
 
                 imgProfile.ImageUrl = "Images/defaultImage.png";
@@ -52,5 +64,24 @@ namespace HealthCareSite
         {
             Response.Redirect("ScheduleAppointment.aspx");
         }
+
+        //method for setting up the page layout based on the user type
+        public void SetupPage()
+        {
+            if (userType == "Doctor")
+            {
+
+            }
+
+            if (userType == "Patient")
+            {
+
+            }
+
+            
+
+        }
+           
+
     }
 }

@@ -18,5 +18,19 @@ namespace HealthCareSite
         {
             Response.Redirect("Homepage.aspx");
         }
+
+        public void SetNavBar()
+        {
+            string userName = (string)Session["userName"];
+            string userType = (string)Session["userType"];
+
+            lblUserType.Text = userType;
+            lblUserName.Text = userName;
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
     }
 }

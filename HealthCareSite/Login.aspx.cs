@@ -17,7 +17,8 @@ namespace HealthCareSite
         string strSQL;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["userName"] = "";
+            Session["userType"] = "";
         }
 
         protected void Login_Click(object sender, EventArgs e)
