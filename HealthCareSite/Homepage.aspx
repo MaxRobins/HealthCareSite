@@ -10,13 +10,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
 
-
-    <script>
-        $(document).ready(function () {
-            $('#<%= gvRecords.ClientID %>').DataTable();
-
-        });
-    </script>
     <style>
         fieldset.scheduler-border {
             border: 2px groove #dedede !important;
@@ -41,10 +34,11 @@
         }
     </style>
     <br />
+    <asp:ScriptManager ID="sm" runat="server"></asp:ScriptManager>
     <div class="container-fluid">
         <div class="row">
             <div class="col-3">
-                <%-- Area fpr the user's profile --%>
+                <%-- Bottom Row --%>
 
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Profile</legend>
@@ -90,44 +84,72 @@
             </div>
             <div class="col-auto">
                 <div class="container-fluid">
-                    <div class="card">                  
+                    <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Schedule Appointments</h5>
                             <p class="card-text">
-                                <asp:Label ID="lblCard" runat="server" Text="Click Below to schedule appointments"></asp:Label></p>
+                                <asp:Label ID="lblCard" runat="server" Text="Click Below to schedule appointments"></asp:Label>
+                            </p>
                             <asp:Button ID="btnAppointment" CssClass="btn-outline-danger" runat="server" Text="Schedule Appiontment" OnClick="btnAppointment_Click" />
                         </div>
                     </div>
                     <br />
+
                     <div class="dtr-control">
-                    <asp:GridView ID="gvRecords" runat="server" OnRowDataBound="gvRecords_RowDataBound" Width="456px" AutoGenerateColumns="False">
-                        <Columns>
-                            <asp:BoundField DataField="FirstName" HeaderText="First Name" />
-                            <asp:BoundField DataField="LastName" HeaderText="Last Name" />
-                            <asp:BoundField DataField="Doctor" HeaderText="Doctor" />
-                            <asp:TemplateField>
-                                <ItemTemplate>
-                                    <asp:Button ID="btnSelect" runat="server" Text="Button"/>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
-                    </asp:GridView>
-                </div>
+                       
+                        <%-- Table for doctor page --%>
+                        <asp:Panel ID="pnlDoctorTable" runat="server">
+                            <asp:GridView ID="gvRecords" runat="server" OnRowDataBound="gvRecords_RowDataBound" Width="456px" AutoGenerateColumns="False">
+                                <Columns>
+                                    <asp:BoundField DataField="FirstName" HeaderText="First Name" />
+                                    <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                                    <asp:BoundField DataField="Doctor" HeaderText="Doctor" />
+                                    <asp:ButtonField ButtonType="Button" CommandName="Details" Text="Details" />
+                                </Columns>
+                            </asp:GridView>
+                        </asp:Panel>
+                        <%-- table for patient page --%>
+                        <asp:Panel ID="pnlPatientTable" runat="server">
+                            <asp:GridView ID="gvAllDoctors" runat="server" AutoGenerateColumns="False" OnRowCommand="gvAllDoctors_RowCommand">
+                                <Columns>
+                                    <asp:BoundField DataField="FirstName" HeaderText="First Name" />
+                                    <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                                    <asp:BoundField DataField="DoctorType" HeaderText="Type" />
+                                    <asp:BoundField DataField="OfficeLocation" HeaderText="Office" />
+                                    <asp:ButtonField ButtonType="Button" CommandName="Schedule" Text="Schedule" />
+                                </Columns>
+                            </asp:GridView>
+                        </asp:Panel>
+                    </div>
 
                 </div>
             </div>
         </div>
-
+        <%-- Bottom Row --%>
         <div class="row">
             <div class="col-2"></div>
             <div class="col-auto">
-
             </div>
             <div class="col-2"></div>
         </div>
     </div>
 
 
+    <script>
 
+        function pageLoad()
+        {
+             $(document).ready(function () {
+                $('#<%= gvAllDoctors.ClientID %>').DataTable();
+             });
+
+            $(document).ready(function () {
+                $('#<%= gvRecords.ClientID %>').DataTable();
+            });
+        }
+
+        
+
+    </script>
 
 </asp:Content>
