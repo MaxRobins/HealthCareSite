@@ -24,15 +24,13 @@
             </div>
             <div class="form-group">
                 <asp:Label ID="lblPainLevel" runat="server" Text="Level of Pain"></asp:Label>
-                <asp:DropDownList id="ColorList"
+                <asp:DropDownList id="ddlPain"
                     runat="server">
-
                   <asp:ListItem Selected="1" Value="1">1</asp:ListItem>
                   <asp:ListItem Value="2">2</asp:ListItem>
                   <asp:ListItem Value="3">3</asp:ListItem>
                   <asp:ListItem Value="4">4</asp:ListItem>
                   <asp:ListItem Value="5">5</asp:ListItem>
-
                </asp:DropDownList>
             </div>
         </div>
@@ -83,27 +81,32 @@
     </div>
     <div class="d-flex flex-row p-2 mr-3 ml-5 mt-3">
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="genders" id="male" value="option1">
-            <label class="form-check-label" for="male">
-                Male   
-            </label>
+            <asp:CheckBoxList id="cblSymptoms" runat="server">
+                 <asp:ListItem Value="Migraines">Migraines</asp:ListItem>
+                 <asp:ListItem Value="Urination">Frequent Urination</asp:ListItem>
+                 <asp:ListItem Value="Nausea">Nausea</asp:ListItem>
+                 <asp:ListItem Value="Coughing">Coughing</asp:ListItem>
+                 <asp:ListItem Value="SoreThroat">Sore Throat</asp:ListItem>
+                 <asp:ListItem Value="Fever">Fever</asp:ListItem>
+                 <asp:ListItem Value="ShortOfBreath">Shortness of Breath</asp:ListItem>
+                 <asp:ListItem Value="Congestion">Congestion</asp:ListItem>
+                 <asp:ListItem Value="Diarrhea">Diarrhea</asp:ListItem>
+                 <asp:ListItem Value="Other">Other</asp:ListItem>
+            </asp:CheckBoxList>
         </div>
+    </div>
+    <div class="d-flex flex-row p-2 mr-3 ml-5 mt-3">
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="genders" id="female" value="option2">
-            <label class="form-check-label" for="female">
-                Female   
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="genders" id="otherGender" value="option3">
-            <label class="form-check-label" for="otherGender">
-                Other   
-            </label>
+            <asp:RadioButtonList ID="rblGender" runat="server">
+                 <asp:ListItem Value="Male">Male</asp:ListItem>
+                 <asp:ListItem Value="Female">Female</asp:ListItem>
+                 <asp:ListItem Value="Other">Other</asp:ListItem>
+            </asp:RadioButtonList>
         </div>
     </div>
     <div class="form-group p-2 mr-3 ml-5 mt-3">
         <label for="birthday">Date of Birth:</label>
-        <input type="date" id="dateOfBirth" name="dateOfBirth">
+        <asp:TextBox ID="txtDate" runat="server" TextMode="Date"></asp:TextBox>
     </div>
     <div class="d-flex justify-content-start flex-row p-2 mr-3 ml-3 mt-3">
         <div class="col-xl-6 p-2 mr-3 ml-3 mt-3">
@@ -122,7 +125,7 @@
             <div class="form-group">
 	            <label for="state" class="col-sm-2 control-label">State</label>
 	            <div class="col-sm-10">
-		            <select class="form-control" id="state" name="state">
+		            <select class="form-control" ID="ddlState" name="ddlState">
 			            <option value="">N/A</option>
 			            <option value="AK">Alaska</option>
 			            <option value="AL">Alabama</option>
@@ -190,6 +193,6 @@
     </div>
     <div class="d-flex justify-content-end p-2 mb-5 mr-5">
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary btn-lg" OnClick="btnSubmit_Click" />
+        <asp:Label ID="lblDisplay" runat="server"></asp:Label>
     </div>
-     <asp:Label ID="lblDisplay" runat="server" Font-Bold="true"></asp:Label>
 </asp:Content>

@@ -21,9 +21,9 @@ namespace HealthCareSite
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            /*if (txtFirstName.Text == "")
+            if (txtFirstName.Text == "" || txtLastName.Text == "" || txtPhoneNumber.Text == "")
             {
-                lblDisplay.Text = "empty name";
+                return;
             }
             else
             {
@@ -38,21 +38,27 @@ namespace HealthCareSite
                 objCommand.Parameters.AddWithValue("@city", txtCity.Text);
                 objCommand.Parameters.AddWithValue("@zipCode", txtZipCode.Text);
                 objCommand.Parameters.AddWithValue("@emailAddress", txtEmail.Text);
+                objCommand.Parameters.AddWithValue("@levelOfPain", ddlPain.SelectedIndex); //= ddlPain.SelectedValue;
+                objCommand.Parameters.AddWithValue("@gender", rblGender.SelectedValue);
+                objCommand.Parameters.AddWithValue("@dateOfBirth", txtDate.Text);
+                objCommand.Parameters.AddWithValue("@symptoms", cblSymptoms.SelectedValue);
 
                 int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
-                if(returnValue > 0)
+
+                //Response.Redirect("home.aspx");
+                if (returnValue > 0)
                 {
-                    lblDisplay.Text = "record was created";
+                    lblDisplay.Text = "was added";
+                    //Response.Redirect("restaurant.aspx");
                 }
                 else
                 {
-                    btnSubmit.Visible = false;
-                    lblDisplay.Text = "record was not created";
+                    lblDisplay.Text = "was not added" + returnValue;
                 }
             }
-            //Response.Redirect("ScheduleAppointment.aspx");*/
-            lblDisplay.Text = "sdlsdm";
-            Response.Write("dskpksmdksm");
+
+            //Response.Redirect("ScheduleAppointment.aspx");
+
         }
     }
 }
