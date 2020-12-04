@@ -195,5 +195,4 @@
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary btn-lg" OnClick="btnSubmit_Click" />
         <asp:Label ID="lblDisplay" runat="server"></asp:Label>
     </div>
-     <asp:Label ID="Label1" runat="server" Font-Bold="true"></asp:Label>
 </asp:Content>
