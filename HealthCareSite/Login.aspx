@@ -23,8 +23,10 @@
                         Login
                     </h5>
                     <div class="form-group">
-                        <label for="user">Name:</label>
-                        <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                        <label for="lblUserName">User Name:</label>
+                        <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+                        <label for="lblPassword">Password:</label>
+                        <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
                         <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="Login_Click" />
                         <asp:Button ID="btnRegsiter" runat="server" Text="Register" OnClick="Regsiter_Click" />
                     </div>
