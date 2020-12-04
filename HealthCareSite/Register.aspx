@@ -17,20 +17,44 @@
 <body>
     <form id="form1" runat="server">
         <div class="f-flex justify-content-center">
-            <div class="card" style="width:25rem">
+            <div class="card">
                 <div class="card-body">
                     <h5>
-                        Register
+                        Register Form
                     </h5>
                     <div class="form-group">
-                        <label for="user">Name:</label>
+                        <label for="lblUsername">User Name:</label>
                         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+
+                        <label for="lblFirstName">First Name:</label>
+                        <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+
+                        <label for="lblLastName">Last Name:</label>
+                        <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
+
                         <asp:RadioButtonList ID ="userType" runat ="server" CssClass="text-left">
                             <asp:ListItem>Doctor</asp:ListItem>
                             <asp:ListItem>Patient</asp:ListItem>
                         </asp:RadioButtonList>
-                        <asp:Button ID="btnRegister" runat="server" Text="Register" />
-                        <asp:Button ID="btnLogin" runat="server" Text="Back to Login" />
+
+                        <label for="lblEmail">Email:</label>
+                        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+
+                        <label for="lblPassword">Password:</label>
+                        <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+
+                        <label for="lblDoctorType">Doctor Type:</label>
+                        <asp:TextBox ID="txtDoctorType" runat="server"></asp:TextBox>
+
+                        <label for="lblOffice">Office:</label>
+                        <asp:TextBox ID="txtOffice" runat="server"></asp:TextBox>
+
+                        <label for="lblPhoneNumber">Phone Number:</label>
+                        <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>
+
+                        <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
+                        <asp:Button ID="btnLogin" runat="server" Text="Back to Login" OnClick="btnLogin_Click" />
+                        <asp:Label ID="lblDisplay" runat="server"></asp:Label>
                     </div>
                 </div>
             </div>
