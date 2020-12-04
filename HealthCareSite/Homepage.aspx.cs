@@ -68,14 +68,16 @@ namespace HealthCareSite
         //method for setting up the page layout based on the user type
         public void SetupPage()
         {
+            
             if (userType == "Doctor")
             {
-
+                //
             }
 
             if (userType == "Patient")
             {
-
+                //if the user is a patient then hide the doctor information
+                pnlDoctorInfo.Visible = false;
             }
 
             
