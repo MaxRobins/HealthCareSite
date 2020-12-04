@@ -38,7 +38,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-3">
-                <%-- Bottom Row --%>
+                <%-- Top Row --%>
 
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Profile</legend>
@@ -84,19 +84,22 @@
             </div>
             <div class="col-auto">
                 <div class="container-fluid">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Schedule Appointments</h5>
-                            <p class="card-text">
-                                <asp:Label ID="lblCard" runat="server" Text="Click Below to schedule appointments"></asp:Label>
-                            </p>
-                            <asp:Button ID="btnAppointment" CssClass="btn-outline-danger" runat="server" Text="Schedule Appiontment" OnClick="btnAppointment_Click" />
+                    <asp:Panel ID="pnlCard" runat="server">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Instructions</h5>
+                                <h4>Search For a Doctor</h4>
+                                <p class="card-text">
+                                    <asp:Label ID="lblCard" runat="server" Text="Search the table for a doctor. You can Filter the table to find a specialist. Once you have found the doctor, you can hit the click the button to schedule an appointment"></asp:Label>
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    </asp:Panel>
+
                     <br />
 
                     <div class="dtr-control">
-                       
+
                         <%-- Table for doctor page --%>
                         <asp:Panel ID="pnlDoctorTable" runat="server">
                             <asp:GridView ID="gvRecords" runat="server" OnRowDataBound="gvRecords_RowDataBound" Width="456px" AutoGenerateColumns="False">
@@ -124,6 +127,87 @@
 
                 </div>
             </div>
+            <div class="col-auto">
+                <%-- Panel for showing Appointment details after clicking --%>
+                <asp:Panel ID="pnlDetails" runat="server" Visible="false">
+                    <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">Appointment Details</legend>
+
+                        <div class="container-fluid">
+                            <%-- Show the Initial Time and Date for the appointment --%>
+                            <div class="row">
+                                <div class="col">
+                                    <asp:Label ID="lblPatientFirst" runat="server" Text="First Name"></asp:Label>
+                                </div>
+                                <div class="col">
+                                    <asp:Label ID="lblPatientLast" runat="server" Text="Last Name"></asp:Label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <asp:Label ID="lblDay" runat="server" Text="Appointment Day"></asp:Label>
+
+                                </div>
+                                <div class="col">
+                                    <asp:Label ID="lblTime" runat="server" Text="Appointment Time"></asp:Label>
+
+                                </div>
+                            </div>
+                            <%-- Data from the reocrd for appointment --%>
+                            <div class="row">
+                                <div class="col">
+                                    <asp:Label ID="lblDOB" runat="server" Text="Date of Birth"></asp:Label>
+
+                                </div>
+                                <div class="col">
+                                    <asp:Label ID="lblGender" runat="server" Text="Gender"></asp:Label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <asp:Label ID="lblMail" runat="server" Text="Email "></asp:Label>
+
+                                </div>
+
+                                <div class="col">
+                                    <asp:Label ID="lblNumber" runat="server" Text="Phone Number "></asp:Label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <asp:Label ID="lblSymptons" runat="server" Text="Symptoms"></asp:Label>
+
+                                </div>
+                                <div class="col">
+                                    <asp:Label ID="lblPainLevel" runat="server" Text="Level of Pain"></asp:Label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4"></div>
+                                <div class="col-4">
+                                    <asp:Button ID="btnEdit" runat="server" Text="Edit Appointment" />
+                                </div>
+                                <div class="col-4"></div>
+
+                            </div>
+
+                            <%-- End of Details data --%>
+                        </div>
+
+                    </fieldset>
+
+                </asp:Panel>
+            </div>
         </div>
         <%-- Bottom Row --%>
         <div class="row">
@@ -137,18 +221,17 @@
 
     <script>
 
-        function pageLoad()
-        {
-             $(document).ready(function () {
+        function pageLoad() {
+            $(document).ready(function () {
                 $('#<%= gvAllDoctors.ClientID %>').DataTable();
-             });
+            });
 
             $(document).ready(function () {
                 $('#<%= gvRecords.ClientID %>').DataTable();
             });
         }
 
-        
+
 
     </script>
 

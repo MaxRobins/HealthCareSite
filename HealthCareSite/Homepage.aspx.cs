@@ -72,9 +72,11 @@ namespace HealthCareSite
             {
                 //hide the table used for patients
                 pnlPatientTable.Visible = false;
+                pnlCard.Visible = false;
+                pnlDetails.Visible = true;
 
                 //use those values to determine which tables to show
-                string strSQL = "SELECT FirstName, LastName, Doctor " +
+                string strSQL = "SELECT ID,FirstName, LastName, Doctor " +
                              "FROM Appointments";
 
                 //perform the sql query and get the dataset
@@ -104,6 +106,11 @@ namespace HealthCareSite
                 gvAllDoctors.DataSource = myDS;
                 gvAllDoctors.DataBind();
 
+                //store the reviewIDs in the data keys collection
+                String[] names = new string[1];
+                names[0] = "Id";
+                gvAllDoctors.DataKeyNames = names;
+
                 gvAllDoctors.HeaderRow.TableSection = TableRowSection.TableHeader;
 
             }
@@ -114,7 +121,7 @@ namespace HealthCareSite
         {
             int rowIndex = Convert.ToInt32(e.CommandArgument.ToString());
 
-            if (e.CommandName == "")
+            if (e.CommandName == "Schedule")
             {
 
             }
