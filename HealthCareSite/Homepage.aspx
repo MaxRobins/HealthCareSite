@@ -110,7 +110,7 @@
                         </asp:Panel>
                         <%-- table for patient page --%>
                         <asp:Panel ID="pnlPatientTable" runat="server">
-                            <asp:GridView ID="gvAllDoctors" runat="server" AutoGenerateColumns="False" OnRowCommand="gvAllDoctors_RowCommand">
+                            <asp:GridView ID="gvAllDoctors" runat="server" AutoGenerateColumns="False" OnRowCommand="gvAllDoctors_RowCommand" OnRowDataBound="gvAllDoctors_RowDataBound">
                                 <Columns>
                                     <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                                     <asp:BoundField DataField="LastName" HeaderText="Last Name" />

@@ -42,8 +42,8 @@ namespace HealthCareSite
             if (IsPostBack)
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Call", "pageLoad()", true);
-                 // gvRecords.HeaderRow.TableSection = TableRowSection.TableHeader;
-                 // gvAllDoctors.HeaderRow.TableSection = TableRowSection.TableHeader;
+                 //gvRecords.HeaderRow.TableSection = TableRowSection.TableHeader;
+                 //gvAllDoctors.HeaderRow.TableSection = TableRowSection.TableHeader;
             }
           
 
@@ -106,8 +106,6 @@ namespace HealthCareSite
 
                 gvAllDoctors.HeaderRow.TableSection = TableRowSection.TableHeader;
 
-
-
             }
          
         }
@@ -119,6 +117,16 @@ namespace HealthCareSite
             if (e.CommandName == "")
             {
 
+            }
+        }
+
+        protected void gvAllDoctors_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            //check if the row is the header row
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                //add the thead and tbody section programatically
+                e.Row.TableSection = TableRowSection.TableHeader;
             }
         }
     }
