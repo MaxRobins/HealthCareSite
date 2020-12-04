@@ -39,7 +39,7 @@
                 <div class="form-inline my-2 my-lg-0">
                     <asp:Label ID="lblUserName" runat="server" CssClass="mr-3"></asp:Label>
                     <asp:Label ID="lblUserType" runat="server" CssClass="mr-3"></asp:Label>
-                    <asp:Button ID="btnLogout" runat="server" Text="Logout" class="btn redbtn" />
+                    <asp:Button ID="btnLogout" runat="server" Text="Logout" class="btn redbtn" OnClick="btnLogout_Click" />
                 </div>
             </div>
         </nav>
