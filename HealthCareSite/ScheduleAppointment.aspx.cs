@@ -20,6 +20,7 @@ namespace HealthCareSite
         String userName = "";
         String userType = "";
         int doctorId;
+        int appId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,6 +30,7 @@ namespace HealthCareSite
                 userName = (string)Session["userName"];
                 userType = (string)Session["userType"];
                 doctorId = (int)Session["doctorId"];
+
                 ShowAppointments();
             }
         }
@@ -40,21 +42,16 @@ namespace HealthCareSite
             objCommand.Parameters.AddWithValue("@doctorId", doctorId);
             DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
             gvAppointments.DataSource = myDS;
+
+            String[] names = new string[1];
+            names[0] = "Id";
+            gvAppointments.DataKeyNames = names;
+
+
             gvAppointments.DataBind();
         }
 
-        protected void ddlDoctor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            objCommand = new SqlCommand();
-            objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetAppointments";
-            objCommand.Parameters.AddWithValue("@doctor", ddlDoctor.SelectedItem.Text);
-            
-            DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
-            gvAppointments.DataSource = myDS;
-            gvAppointments.DataBind();
-                
-        }
+        
 
         protected void gvAppointments_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -63,14 +60,14 @@ namespace HealthCareSite
         protected void gvAppointments_RowEditing(Object sender, System.Web.UI.WebControls.GridViewEditEventArgs e)
 
         {
-            
+            /*
             Response.Write("roweditingfired");
             gvAppointments.EditIndex = e.NewEditIndex;
-            ShowAppointments();
+            ShowAppointments();*/
         }
         protected void gvAppointments_RowUpdating(Object sender, System.Web.UI.WebControls.GridViewUpdateEventArgs e)
         {
-            int rowIndex = e.RowIndex;
+            /*int rowIndex = e.RowIndex;
             
             string day = gvAppointments.Rows[e.RowIndex].Cells[0].Text;
             string time = gvAppointments.Rows[e.RowIndex].Cells[1].Text;
@@ -101,14 +98,34 @@ namespace HealthCareSite
                 
                 gvAppointments.EditIndex = -1;
                 ShowAppointments();
-            }
+            }*/
 
         }
         protected void gvAppointments_RowCancelingEdit(Object sender, System.Web.UI.WebControls.GridViewCancelEditEventArgs e)
 
         {
-            gvAppointments.EditIndex = -1;
-            ShowAppointments();
+           /* gvAppointments.EditIndex = -1;
+            ShowAppointments();*/
+        }
+
+        protected void gvAppointments_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+                
+        }
+
+        protected void gvAppointments_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument.ToString());
+
+            if (e.CommandName == "CreateRecord")
+            {
+                //Save the DoctorID to Session
+                int appId = int.Parse(gvAppointments.DataKeys[rowIndex].Value.ToString());
+                Session.Add("appId", appId);
+
+                //Go to the Schedule Appointments page
+                Response.Redirect("CreateRecord.aspx");
+            }
         }
     }
 }

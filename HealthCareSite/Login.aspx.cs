@@ -19,6 +19,8 @@ namespace HealthCareSite
         {
             Session["userName"] = "";
             Session["userType"] = "";
+            Session["firstName"] = "";
+            Session["lastName"] = "";
         }
 
         protected void Login_Click(object sender, EventArgs e)
@@ -41,6 +43,8 @@ namespace HealthCareSite
             
             Session["userName"] = myDS.Tables[0].Rows[0]["userName"].ToString();
             Session["userType"] = myDS.Tables[0].Rows[0]["userType"].ToString();
+            Session["firstName"] = myDS.Tables[0].Rows[0]["firstName"].ToString();
+            Session["lastName"] = myDS.Tables[0].Rows[0]["lastName"].ToString();
             Response.Redirect("Homepage.aspx");
         }
         

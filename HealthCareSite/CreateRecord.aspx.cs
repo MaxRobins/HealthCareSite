@@ -16,11 +16,17 @@ namespace HealthCareSite
         string strSQL;
         String userName = "";
         String userType = "";
+        String firstName = "";
+        String lastName = "";
+        int appId;
         protected void Page_Load(object sender, EventArgs e)
         {
             (this.Master as Master).SetNavBar();
             userName = (string)Session["userName"];
             userType = (string)Session["userType"];
+            firstName = (string)Session["firstName"];
+            lastName = (string)Session["lastName"];
+            appId = (int)Session["appId"];
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -46,9 +52,22 @@ namespace HealthCareSite
                 objCommand.Parameters.AddWithValue("@gender", rblGender.SelectedValue);
                 objCommand.Parameters.AddWithValue("@dateOfBirth", txtDate.Text);
                 objCommand.Parameters.AddWithValue("@symptoms", cblSymptoms.SelectedValue);
-
-                int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
+                objCommand.Parameters.AddWithValue("@id", appId);
                 
+                int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
+
+
+                objCommand = new SqlCommand();
+                objCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                objCommand.CommandText = "updateAppointment";
+
+                objCommand.Parameters.AddWithValue("@firstName", firstName);
+                objCommand.Parameters.AddWithValue("@lastName", lastName);
+                objCommand.Parameters.AddWithValue("@id", appId);
+
+                int returnVal = objDB.DoUpdateUsingCmdObj(objCommand);
+
+
                 if (returnValue > 0)
                 {
                     Response.Redirect("ScheduleAppointment.aspx");
@@ -58,9 +77,7 @@ namespace HealthCareSite
                     lblDisplay.Text = "was not added" + returnValue;
                 }
             }
-
             
-
         }
     }
 }
