@@ -64,7 +64,6 @@ namespace HealthCareSite
 
         {
             
-            
             Response.Write("roweditingfired");
             gvAppointments.EditIndex = e.NewEditIndex;
             ShowAppointments();

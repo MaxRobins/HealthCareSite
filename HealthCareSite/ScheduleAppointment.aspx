@@ -20,8 +20,6 @@
 
             <asp:CommandField HeaderText="Schedule" ShowEditButton="True" />
             
-            
-            
         </Columns>
     </asp:GridView>
 </asp:Content>
