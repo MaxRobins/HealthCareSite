@@ -81,6 +81,7 @@
                     </div>
 
                 </fieldset>
+                <asp:Button ID="btnCreateApp" runat="server" Text="Add Appointment" />
             </div>
             <div class="col-auto">
                 <div class="container-fluid">
