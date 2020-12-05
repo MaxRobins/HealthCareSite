@@ -77,7 +77,7 @@ namespace HealthCareSite
 
                 //use those values to determine which tables to show
                 string strSQL = "SELECT ID,FirstName, LastName, Doctor " +
-                             "FROM Appointments";
+                             "FROM TP_Appointments";
 
                 //perform the sql query and get the dataset
                 myDS = objDB.GetDataSet(strSQL);

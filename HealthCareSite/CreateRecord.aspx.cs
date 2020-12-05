@@ -38,7 +38,7 @@ namespace HealthCareSite
             else
             {
                 objCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                objCommand.CommandText = "CreateRecord";
+                objCommand.CommandText = "TP_CreateRecord";
 
                 objCommand.Parameters.AddWithValue("@firstName", txtFirstName.Text);
                 objCommand.Parameters.AddWithValue("@lastName", txtLastName.Text);
@@ -48,7 +48,7 @@ namespace HealthCareSite
                 objCommand.Parameters.AddWithValue("@city", txtCity.Text);
                 objCommand.Parameters.AddWithValue("@zipCode", txtZipCode.Text);
                 objCommand.Parameters.AddWithValue("@emailAddress", txtEmail.Text);
-                objCommand.Parameters.AddWithValue("@levelOfPain", ddlPain.SelectedIndex); //= ddlPain.SelectedValue;
+                objCommand.Parameters.AddWithValue("@levelOfPain", ddlPain.SelectedIndex);
                 objCommand.Parameters.AddWithValue("@gender", rblGender.SelectedValue);
                 objCommand.Parameters.AddWithValue("@dateOfBirth", txtDate.Text);
                 objCommand.Parameters.AddWithValue("@symptoms", cblSymptoms.SelectedValue);
@@ -59,7 +59,7 @@ namespace HealthCareSite
 
                 objCommand = new SqlCommand();
                 objCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                objCommand.CommandText = "updateAppointment";
+                objCommand.CommandText = "TP_updateAppointment";
 
                 objCommand.Parameters.AddWithValue("@firstName", firstName);
                 objCommand.Parameters.AddWithValue("@lastName", lastName);
@@ -70,7 +70,7 @@ namespace HealthCareSite
 
                 if (returnValue > 0)
                 {
-                    Response.Redirect("ScheduleAppointment.aspx");
+                    Response.Redirect("ConfirmationPage.aspx");
                 }
                 else
                 {

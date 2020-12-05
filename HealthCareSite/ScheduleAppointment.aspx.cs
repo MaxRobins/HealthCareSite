@@ -38,7 +38,7 @@ namespace HealthCareSite
         {
             objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetAppointments";
+            objCommand.CommandText = "TP_GetAppointments";
             objCommand.Parameters.AddWithValue("@doctorId", doctorId);
             DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
             gvAppointments.DataSource = myDS;
