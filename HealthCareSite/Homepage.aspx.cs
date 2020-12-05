@@ -96,7 +96,7 @@ namespace HealthCareSite
                 pnlDoctorTable.Visible = false;
 
                 //use those values to determine which tables to show
-                string strSQL = "SELECT FirstName, LastName, DoctorType, OfficeLocation, Email, PhoneNumber " +
+                string strSQL = "SELECT FirstName, LastName, DoctorType, OfficeLocation, Email, PhoneNumber, Id " +
                              "FROM TP_Users " + 
                              "WHERE UserType = 'Doctor'";
 
@@ -104,12 +104,15 @@ namespace HealthCareSite
                 myDS = objDB.GetDataSet(strSQL);
                 //place result into the Gridview
                 gvAllDoctors.DataSource = myDS;
-                gvAllDoctors.DataBind();
 
-                //store the reviewIDs in the data keys collection
+                //store the Doctor's ID in the data keys collection
                 String[] names = new string[1];
                 names[0] = "Id";
                 gvAllDoctors.DataKeyNames = names;
+
+                gvAllDoctors.DataBind();
+
+                
 
                 gvAllDoctors.HeaderRow.TableSection = TableRowSection.TableHeader;
 
@@ -123,7 +126,12 @@ namespace HealthCareSite
 
             if (e.CommandName == "Schedule")
             {
+                //Save the DoctorID to Session
+                int doctorId = int.Parse(gvAllDoctors.DataKeys[rowIndex].Value.ToString());
+                Session.Add("doctorId", doctorId);
 
+                //Go to the Schedule Appointments page
+                Response.Redirect("ScheduleAppointment.aspx");
             }
         }
 
