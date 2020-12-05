@@ -19,6 +19,8 @@ namespace HealthCareSite
         string strSQL;
         String userName = "";
         String userType = "";
+        int doctorId;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -26,7 +28,8 @@ namespace HealthCareSite
                 (this.Master as Master).SetNavBar();
                 userName = (string)Session["userName"];
                 userType = (string)Session["userType"];
-                //ShowAppointments();
+                doctorId = (int)Session["doctorId"];
+                ShowAppointments();
             }
         }
         private void ShowAppointments()
@@ -34,7 +37,7 @@ namespace HealthCareSite
             objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "GetAppointments";
-            objCommand.Parameters.AddWithValue("@doctor", ddlDoctor.SelectedItem.Text);
+            objCommand.Parameters.AddWithValue("@doctorId", doctorId);
             DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
             gvAppointments.DataSource = myDS;
             gvAppointments.DataBind();
