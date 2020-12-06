@@ -102,11 +102,13 @@
 
                         <%-- Table for doctor page --%>
                         <asp:Panel ID="pnlDoctorTable" runat="server">
-                            <asp:GridView ID="gvRecords" runat="server" OnRowDataBound="gvRecords_RowDataBound" Width="456px" AutoGenerateColumns="False">
+                            <asp:GridView ID="gvRecords" runat="server" OnRowDataBound="gvRecords_RowDataBound" Width="456px" AutoGenerateColumns="False" OnRowCommand="gvRecords_RowCommand">
                                 <Columns>
                                     <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                                     <asp:BoundField DataField="LastName" HeaderText="Last Name" />
                                     <asp:BoundField DataField="Doctor" HeaderText="Doctor" />
+                                    <asp:BoundField DataField="Day" HeaderText="Day" />
+                                    <asp:BoundField DataField="Time" HeaderText="Time" />
                                     <asp:ButtonField ButtonType="Button" CommandName="Details" Text="Details" />
                                 </Columns>
                             </asp:GridView>
@@ -137,31 +139,25 @@
                             <%-- Show the Initial Time and Date for the appointment --%>
                             <div class="row">
                                 <div class="col">
-                                    <asp:Label ID="lblPatientFirst" runat="server" Text="First Name"></asp:Label>
+                                    <asp:Label ID="lblPatientFirst" runat="server" Text="First Name"></asp:Label><br />
+                                    <asp:TextBox ID="txtFirst" runat="server" ReadOnly="True"></asp:TextBox>
                                 </div>
                                 <div class="col">
-                                    <asp:Label ID="lblPatientLast" runat="server" Text="Last Name"></asp:Label>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                    <asp:Label ID="lblDay" runat="server" Text="Appointment Day"></asp:Label>
-
-                                </div>
-                                <div class="col">
-                                    <asp:Label ID="lblTime" runat="server" Text="Appointment Time"></asp:Label>
-
+                                    <asp:Label ID="lblPatientLast" runat="server" Text="Last Name"></asp:Label><br />
+                                    <asp:TextBox ID="txtLast" runat="server" ReadOnly="True"></asp:TextBox>
                                 </div>
                             </div>
-                            <%-- Data from the reocrd for appointment --%>
+
+                            <%-- Data from the record for appointment --%>
                             <div class="row">
                                 <div class="col">
-                                    <asp:Label ID="lblDOB" runat="server" Text="Date of Birth"></asp:Label>
+                                    <asp:Label ID="lblDOB" runat="server" Text="Date of Birth"></asp:Label><br />
+                                    <asp:TextBox ID="txtDOB" runat="server" ReadOnly="True"></asp:TextBox>
 
                                 </div>
                                 <div class="col">
-                                    <asp:Label ID="lblGender" runat="server" Text="Gender"></asp:Label>
+                                    <asp:Label ID="lblGender" runat="server" Text="Gender"></asp:Label><br />
+                                    <asp:TextBox ID="txtGender" runat="server" ReadOnly="True"></asp:TextBox>
 
                                 </div>
 
@@ -169,25 +165,26 @@
 
                             <div class="row">
                                 <div class="col">
-                                    <asp:Label ID="lblMail" runat="server" Text="Email "></asp:Label>
+                                    <asp:Label ID="lblMail" runat="server" Text="Email "></asp:Label><br />
+                                    <asp:TextBox ID="txtMail" runat="server" ReadOnly="True"></asp:TextBox>
 
                                 </div>
 
                                 <div class="col">
-                                    <asp:Label ID="lblNumber" runat="server" Text="Phone Number "></asp:Label>
-
+                                    <asp:Label ID="lblNumber" runat="server" Text="Phone Number "></asp:Label><br />  
+                                    <asp:TextBox ID="txtNumber" runat="server" ReadOnly="True"></asp:TextBox>
                                 </div>
 
                             </div>
 
                             <div class="row">
                                 <div class="col">
-                                    <asp:Label ID="lblSymptons" runat="server" Text="Symptoms"></asp:Label>
-
+                                    <asp:Label ID="lblSymptons" runat="server" Text="Symptoms"></asp:Label><br />
+                                    <asp:TextBox ID="txtSymptoms" runat="server" ReadOnly="True"></asp:TextBox>
                                 </div>
                                 <div class="col">
-                                    <asp:Label ID="lblPainLevel" runat="server" Text="Level of Pain"></asp:Label>
-
+                                    <asp:Label ID="lblPainLevel" runat="server" Text="Level of Pain"></asp:Label><br />
+                                    <asp:TextBox ID="txtPain" runat="server" ReadOnly="True"></asp:TextBox>
                                 </div>
 
                             </div>
