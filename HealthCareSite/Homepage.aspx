@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Homepage.aspx.cs" Inherits="HealthCareSite.Homepage" %>
 
+<%@ Register Src="~/UserControl.ascx" TagPrefix="uc1" TagName="UserControl" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -42,43 +45,7 @@
 
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Profile</legend>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <asp:Image CssClass="img-fluid rounded" ID="imgProfile" runat="server" />
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>
-
-                            </div>
-                            <div class="col">
-                                <asp:Label ID="lblLastName" runat="server" Text="Last Name"></asp:Label>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <asp:Label ID="lblEmail" runat="server" Text="Name@Email.com"></asp:Label>
-                            </div>
-
-                            <div class="col">
-                                <asp:Label ID="lblPhone" runat="server" Text="555-555-5555"></asp:Label>
-                            </div>
-
-                        </div>
-
-                        <asp:Panel ID="pnlDoctorInfo" runat="server">
-                            <div class="row">
-                                <div class="col">
-                                    <asp:Label ID="lblLocation" runat="server" Text="123 Place Road"></asp:Label>
-                                </div>
-
-                                <div class="col">
-                                    <asp:Label ID="lblType" runat="server" Text="Cardiologist"></asp:Label>
-                                </div>
-                            </div>
-                        </asp:Panel>
-                    </div>
+                    <uc1:UserControl runat="server" id="userControl" />
                 </fieldset>
                 <asp:Button ID="btnCreateApp" runat="server" Text="Add Appointment" OnClick="btnCreateApp_Click" />
             </div>
@@ -91,7 +58,7 @@
                                 <h4>Search For a Doctor</h4>
                                 <p class="card-text">
                                     <asp:Label ID="lblCard" runat="server" Text="Search the table for a doctor. You can Filter the table to find a specialist. Once you have found the doctor, you can hit the click the button to schedule an appointment"></asp:Label>
-                                </p>
+                                    .</p>
                             </div>
                         </div>
                     </asp:Panel>
