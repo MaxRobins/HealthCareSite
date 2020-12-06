@@ -5,7 +5,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
+
+using System.Web.Script.Serialization;
+using System.IO;
+using System.Net;
 using System.Data;
+
+
+
+
 using Utilities;
 
 
@@ -19,7 +28,6 @@ namespace HealthCareSite
         String userName = "";
         String userType = "";
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -31,7 +39,7 @@ namespace HealthCareSite
                 //get the User Name and User Type from the session storage
                 userName = (string)Session["userName"];
                 userType = (string)Session["userType"];
-                
+
                  //set up the page
                 SetupPage();
                     
@@ -42,8 +50,6 @@ namespace HealthCareSite
             if (IsPostBack)
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Call", "pageLoad()", true);
-                 //gvRecords.HeaderRow.TableSection = TableRowSection.TableHeader;
-                 //gvAllDoctors.HeaderRow.TableSection = TableRowSection.TableHeader;
             }
           
 
@@ -76,13 +82,20 @@ namespace HealthCareSite
                 pnlDetails.Visible = true;
 
                 //use those values to determine which tables to show
-                string strSQL = "SELECT ID,FirstName, LastName, Doctor " +
+                string strSQL = "SELECT ID,FirstName, LastName, Doctor, Day, Time " +
                              "FROM TP_Appointments";
 
                 //perform the sql query and get the dataset
                 myDS = objDB.GetDataSet(strSQL);
                 //place result into the Gridview
                 gvRecords.DataSource = myDS;
+
+                //Save the ID to the datakeys
+                //store the Doctor's ID in the data keys collection
+                String[] names = new string[1];
+                names[0] = "ID";
+                gvRecords.DataKeyNames = names;
+
                 gvRecords.DataBind();
 
                 gvRecords.HeaderRow.TableSection = TableRowSection.TableHeader;
@@ -91,6 +104,7 @@ namespace HealthCareSite
 
             if (userType == "Patient")
             {
+               
                 //if the user is a patient then hide the doctor information
                 pnlDoctorInfo.Visible = false;
                 pnlDoctorTable.Visible = false;
@@ -147,8 +161,17 @@ namespace HealthCareSite
 
         protected void btnCreateApp_Click(object sender, EventArgs e)
         {
-
             Response.Redirect("CreateAppointment.aspx");
+        }
+
+        protected void gvRecords_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument.ToString());
+
+            if (e.CommandName == "Details")
+            {
+                
+            }
         }
     }
 }
