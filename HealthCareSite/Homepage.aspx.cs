@@ -5,7 +5,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
+
+using System.Web.Script.Serialization;
+using System.IO;
+using System.Net;
 using System.Data;
+
+
+
+
 using Utilities;
 
 
@@ -18,7 +27,7 @@ namespace HealthCareSite
         SqlCommand objCommand = new SqlCommand();
         String userName = "";
         String userType = "";
-
+        string webApiUrl = "https://localhost:44347/api/User/";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -77,12 +86,19 @@ namespace HealthCareSite
 
                 //use those values to determine which tables to show
                 string strSQL = "SELECT ID,FirstName, LastName, Doctor " +
-                             "FROM TP_Appointments";
+                             "FROM Appointments";
 
                 //perform the sql query and get the dataset
                 myDS = objDB.GetDataSet(strSQL);
                 //place result into the Gridview
                 gvRecords.DataSource = myDS;
+
+                //Save the ID to the datakeys
+                //store the Doctor's ID in the data keys collection
+                String[] names = new string[1];
+                names[0] = "ID";
+                gvRecords.DataKeyNames = names;
+
                 gvRecords.DataBind();
 
                 gvRecords.HeaderRow.TableSection = TableRowSection.TableHeader;
@@ -91,6 +107,7 @@ namespace HealthCareSite
 
             if (userType == "Patient")
             {
+               
                 //if the user is a patient then hide the doctor information
                 pnlDoctorInfo.Visible = false;
                 pnlDoctorTable.Visible = false;
@@ -143,11 +160,6 @@ namespace HealthCareSite
                 //add the thead and tbody section programatically
                 e.Row.TableSection = TableRowSection.TableHeader;
             }
-        }
-
-        protected void btnCreateApp_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("CreateAppointment.aspx");
         }
     }
 }
