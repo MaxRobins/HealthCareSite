@@ -49,12 +49,10 @@
                         <div class="row">
                             <div class="col">
                                 <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>
-
                             </div>
                             <div class="col">
                                 <asp:Label ID="lblLastName" runat="server" Text="Last Name"></asp:Label>
                             </div>
-
                         </div>
                         <div class="row">
                             <div class="col">
