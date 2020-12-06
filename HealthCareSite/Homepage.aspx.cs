@@ -28,6 +28,7 @@ namespace HealthCareSite
         SqlCommand objCommand = new SqlCommand();
         String userName = "";
         String userType = "";
+        int userID = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,11 +41,12 @@ namespace HealthCareSite
                 //get the User Name and User Type from the session storage
                 userName = (string)Session["userName"];
                 userType = (string)Session["userType"];
+                userID = (int)Session["Id"];
 
-                 //set up the page
+                //set up the page
                 SetupPage();
-                    
 
+                userControl.setPhone( "User Id: " + userID.ToString());
              
             }
 
@@ -81,6 +83,7 @@ namespace HealthCareSite
                 pnlPatientTable.Visible = false;
                 pnlCard.Visible = false;
                 pnlDetails.Visible = true;
+                userControl.setFirstName("Doctor Man");
 
                 //use those values to determine which tables to show
                 string strSQL = "SELECT ID,FirstName, LastName, Doctor, Day, Time " +
@@ -108,6 +111,7 @@ namespace HealthCareSite
 
                 //if the user is a patient then hide the doctor information
                 userControl.setDoctorInfoVisibility(false);
+                userControl.setFirstName("Jimmy Jam");
                 pnlDoctorTable.Visible = false;
                 btnCreateApp.Visible = false;
 

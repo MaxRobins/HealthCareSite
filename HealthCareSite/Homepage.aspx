@@ -60,7 +60,7 @@
                                 <h4>Search For a Doctor</h4>
                                 <p class="card-text">
                                     <asp:Label ID="lblCard" runat="server" Text="Search the table for a doctor. You can Filter the table to find a specialist. Once you have found the doctor, you can hit the click the button to schedule an appointment"></asp:Label>
-                                    .</p>
+                                    </p>
                             </div>
                         </div>
                     </asp:Panel>
