@@ -41,10 +41,11 @@ namespace HealthCareSite
                 Response.Redirect("register.aspx");
             }
             
-            Session["userName"] = myDS.Tables[0].Rows[0]["userName"].ToString();
-            Session["userType"] = myDS.Tables[0].Rows[0]["userType"].ToString();
-            Session["firstName"] = myDS.Tables[0].Rows[0]["firstName"].ToString();
-            Session["lastName"] = myDS.Tables[0].Rows[0]["lastName"].ToString();
+            Session["userName"] = myDS.Tables[0].Rows[0]["Username"].ToString();
+            Session["userType"] = myDS.Tables[0].Rows[0]["UserType"].ToString();
+            Session["firstName"] = myDS.Tables[0].Rows[0]["FirstName"].ToString();
+            Session["lastName"] = myDS.Tables[0].Rows[0]["LastName"].ToString();
+            Session["Id"] = myDS.Tables[0].Rows[0]["Id"].ToString();
             Response.Redirect("Homepage.aspx");
         }
         
