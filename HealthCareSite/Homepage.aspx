@@ -44,7 +44,8 @@
                     <legend class="scheduler-border">Profile</legend>
                     <div class="container-fluid">
                         <div class="row">
-                            <asp:Image CssClass="img-fluid rounded" ID="imgProfile" runat="server" />
+                            <asp:Image CssClass="img-fluid rounded" ID="imgProfile" runat="server" /> <br />
+                            <asp:Label ID="lblUploadImg" runat="server" Text="Upload Profile Picture :"></asp:Label><asp:FileUpload ID="FileUpload1" runat="server" />
                         </div>
                         <div class="row">
                             <div class="col">
