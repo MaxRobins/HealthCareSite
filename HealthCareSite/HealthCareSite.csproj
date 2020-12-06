@@ -68,12 +68,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CreateRecord.aspx" />
+    <Content Include="CreateAppointment.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="Images\defaultImage.png" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ScheduleAppointment.aspx" />
     <Content Include="Web.config" />
+    <Content Include="ConfirmationPage.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreateRecord.aspx.cs">
@@ -82,6 +84,13 @@
     </Compile>
     <Compile Include="CreateRecord.aspx.designer.cs">
       <DependentUpon>CreateRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAppointment.aspx.cs">
+      <DependentUpon>CreateAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateAppointment.aspx.designer.cs">
+      <DependentUpon>CreateAppointment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Homepage.aspx.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
@@ -118,6 +127,13 @@
     </Compile>
     <Compile Include="ScheduleAppointment.aspx.designer.cs">
       <DependentUpon>ScheduleAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmationPage.aspx.cs">
+      <DependentUpon>ConfirmationPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmationPage.aspx.designer.cs">
+      <DependentUpon>ConfirmationPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
