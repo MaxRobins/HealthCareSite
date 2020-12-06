@@ -31,7 +31,7 @@ namespace HealthCareSite
                 //get the User Name and User Type from the session storage
                 userName = (string)Session["userName"];
                 userType = (string)Session["userType"];
-
+                
                  //set up the page
                 SetupPage();
                     
@@ -147,6 +147,7 @@ namespace HealthCareSite
 
         protected void btnCreateApp_Click(object sender, EventArgs e)
         {
+
             Response.Redirect("CreateAppointment.aspx");
         }
     }
