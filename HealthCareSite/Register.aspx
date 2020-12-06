@@ -6,6 +6,24 @@
 <head runat="server">
     <title></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript">
+        function showHint(str) {
+            if (str.length == 0) {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+            }
+            else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                };
+            xmlhttp.open("GET", "getHint.asp?q=" + str, true);
+            xmlhttp.send();
+            }
+        }
+    </script>
     <style>
         body{
             background-color:aquamarine;
@@ -15,6 +33,9 @@
     </style>
 </head>
 <body>
+    Funny User Names: <input type="text" onkeyup="showHint(this.value)">
+    <p>Suggestions: <span id="txtHint"></span></p>
+
     <form id="form1" runat="server">
         <div class="f-flex justify-content-center">
             <div class="card">
@@ -23,9 +44,9 @@
                         Register Form
                     </h5>
                     <div class="form-group">
+                            
                         <label for="lblUsername">User Name:</label>
                         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
-
                         <label for="lblFirstName">First Name:</label>
                         <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
 
