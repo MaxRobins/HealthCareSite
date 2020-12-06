@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 using System.Web.Script.Serialization;
@@ -44,7 +45,7 @@ namespace HealthCareSite
                 SetupPage();
                     
 
-                imgProfile.ImageUrl = "Images/defaultImage.png";
+             
             }
 
             if (IsPostBack)
@@ -104,10 +105,11 @@ namespace HealthCareSite
 
             if (userType == "Patient")
             {
-               
+
                 //if the user is a patient then hide the doctor information
-                pnlDoctorInfo.Visible = false;
+                userControl.setDoctorInfoVisibility(false);
                 pnlDoctorTable.Visible = false;
+                btnCreateApp.Visible = false;
 
                 //use those values to determine which tables to show
                 string strSQL = "SELECT FirstName, LastName, DoctorType, OfficeLocation, Email, PhoneNumber, Id " +
@@ -173,5 +175,8 @@ namespace HealthCareSite
                 
             }
         }
+
+    
+        
     }
 }
