@@ -98,7 +98,6 @@
     </Compile>
     <Compile Include="CustomControls\ProfileControl.ascx.cs">
       <DependentUpon>ProfileControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CustomControls\ProfileControl.ascx.designer.cs">
       <DependentUpon>ProfileControl.ascx</DependentUpon>
