@@ -83,7 +83,7 @@ namespace HealthCareSite
 
                 //use those values to determine which tables to show
                 string strSQL = "SELECT ID,FirstName, LastName, Doctor, Day, Time " +
-                             "FROM Appointments";
+                             "FROM TP_Appointments";
 
                 //perform the sql query and get the dataset
                 myDS = objDB.GetDataSet(strSQL);
@@ -161,7 +161,7 @@ namespace HealthCareSite
 
         protected void btnCreateApp_Click(object sender, EventArgs e)
         {
-            
+            Response.Redirect("CreateAppointment.aspx");
         }
 
         protected void gvRecords_RowCommand(object sender, GridViewCommandEventArgs e)
