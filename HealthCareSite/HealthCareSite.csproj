@@ -69,6 +69,9 @@
   <ItemGroup>
     <Content Include="CreateRecord.aspx" />
     <Content Include="CreateAppointment.aspx" />
+    <Content Include="CustomControls\ProfileControl.ascx" />
+    <Content Include="getHint.asp" />
+    <Content Include="GetName.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="Images\defaultImage.png" />
     <Content Include="Login.aspx" />
@@ -91,6 +94,20 @@
     </Compile>
     <Compile Include="CreateAppointment.aspx.designer.cs">
       <DependentUpon>CreateAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ProfileControl.ascx.cs">
+      <DependentUpon>ProfileControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ProfileControl.ascx.designer.cs">
+      <DependentUpon>ProfileControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GetName.aspx.cs">
+      <DependentUpon>GetName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetName.aspx.designer.cs">
+      <DependentUpon>GetName.aspx</DependentUpon>
     </Compile>
     <Compile Include="Homepage.aspx.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
