@@ -166,6 +166,15 @@ namespace HealthCareSite {
         protected global::System.Web.UI.WebControls.Label lblPatientFirst;
         
         /// <summary>
+        /// txtFirst control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFirst;
+        
+        /// <summary>
         /// lblPatientLast control.
         /// </summary>
         /// <remarks>
@@ -175,22 +184,13 @@ namespace HealthCareSite {
         protected global::System.Web.UI.WebControls.Label lblPatientLast;
         
         /// <summary>
-        /// lblDay control.
+        /// txtLast control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDay;
-        
-        /// <summary>
-        /// lblTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTime;
+        protected global::System.Web.UI.WebControls.TextBox txtLast;
         
         /// <summary>
         /// lblDOB control.
@@ -202,6 +202,15 @@ namespace HealthCareSite {
         protected global::System.Web.UI.WebControls.Label lblDOB;
         
         /// <summary>
+        /// txtDOB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDOB;
+        
+        /// <summary>
         /// lblGender control.
         /// </summary>
         /// <remarks>
@@ -209,6 +218,15 @@ namespace HealthCareSite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGender;
+        
+        /// <summary>
+        /// txtGender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGender;
         
         /// <summary>
         /// lblMail control.
@@ -220,6 +238,15 @@ namespace HealthCareSite {
         protected global::System.Web.UI.WebControls.Label lblMail;
         
         /// <summary>
+        /// txtMail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMail;
+        
+        /// <summary>
         /// lblNumber control.
         /// </summary>
         /// <remarks>
@@ -227,6 +254,15 @@ namespace HealthCareSite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNumber;
+        
+        /// <summary>
+        /// txtNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNumber;
         
         /// <summary>
         /// lblSymptons control.
@@ -238,6 +274,15 @@ namespace HealthCareSite {
         protected global::System.Web.UI.WebControls.Label lblSymptons;
         
         /// <summary>
+        /// txtSymptoms control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSymptoms;
+        
+        /// <summary>
         /// lblPainLevel control.
         /// </summary>
         /// <remarks>
@@ -245,6 +290,15 @@ namespace HealthCareSite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPainLevel;
+        
+        /// <summary>
+        /// txtPain control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPain;
         
         /// <summary>
         /// btnEdit control.
