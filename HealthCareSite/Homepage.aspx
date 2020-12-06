@@ -79,9 +79,8 @@
                             </div>
                         </asp:Panel>
                     </div>
-
                 </fieldset>
-                <asp:Button ID="btnCreateApp" runat="server" Text="Add Appointment" />
+                <asp:Button ID="btnCreateApp" runat="server" Text="Add Appointment" OnClick="btnCreateApp_Click" />
             </div>
             <div class="col-auto">
                 <div class="container-fluid">
