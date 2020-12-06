@@ -77,6 +77,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ScheduleAppointment.aspx" />
+    <Content Include="UserControl.ascx" />
     <Content Include="Web.config" />
     <Content Include="ConfirmationPage.aspx" />
   </ItemGroup>
@@ -97,7 +98,6 @@
     </Compile>
     <Compile Include="CustomControls\ProfileControl.ascx.cs">
       <DependentUpon>ProfileControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CustomControls\ProfileControl.ascx.designer.cs">
       <DependentUpon>ProfileControl.ascx</DependentUpon>
@@ -144,6 +144,13 @@
     </Compile>
     <Compile Include="ConfirmationPage.aspx.designer.cs">
       <DependentUpon>ConfirmationPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl.ascx.cs">
+      <DependentUpon>UserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl.ascx.designer.cs">
+      <DependentUpon>UserControl.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

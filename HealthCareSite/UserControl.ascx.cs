@@ -5,19 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace HealthCareSite.CustomControls
+namespace HealthCareSite
 {
-    public partial class ProfileControl : System.Web.UI.UserControl
+    public partial class UserControl : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        //
-        public void setNameVisibility(bool visiblity)
-        {
-            pnlName.Visible = visiblity;
         }
 
         public void setFirstName(string name)
@@ -28,11 +22,6 @@ namespace HealthCareSite.CustomControls
         public void setLastName(string name)
         {
             lblLastName.Text = name;
-        }
-        //
-        public void setContactVisibility(bool visibility)
-        {
-            pnlContact.Visible = visibility;
         }
 
         public void setEmail(string email)
@@ -59,17 +48,10 @@ namespace HealthCareSite.CustomControls
         {
             lblType.Text = type;
         }
-        //
-        public void setImageVisibility(bool visibility)
-        {
-            pnlPicture.Visible = visibility;
-        }
 
         public void setImage(string image)
         {
             imgProfile.ImageUrl = image;
         }
-
-
     }
 }

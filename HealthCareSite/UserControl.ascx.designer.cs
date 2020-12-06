@@ -7,19 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HealthCareSite.CustomControls {
+namespace HealthCareSite {
     
     
-    public partial class ProfileControl {
-        
-        /// <summary>
-        /// pnlPicture control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlPicture;
+    public partial class UserControl {
         
         /// <summary>
         /// imgProfile control.
@@ -29,15 +20,6 @@ namespace HealthCareSite.CustomControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgProfile;
-        
-        /// <summary>
-        /// pnlName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlName;
         
         /// <summary>
         /// lblFirstName control.
@@ -56,15 +38,6 @@ namespace HealthCareSite.CustomControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLastName;
-        
-        /// <summary>
-        /// pnlContact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlContact;
         
         /// <summary>
         /// lblEmail control.
