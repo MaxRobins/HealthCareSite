@@ -17,25 +17,10 @@ namespace HealthCareSite
         SqlCommand objCommand = new SqlCommand();
         string strSQL;
 
-        //ArrayList namelist = new ArrayList();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*namelist.Add("terriblewhereas");
-            namelist.Add("filtsodalis");
-            namelist.Add("pleasurrelamp");
-            namelist.Add("munchchamb");
-            namelist.Add("anchoredciky");
-            namelist.Add("ungold");
-            namelist.Add("plairyhummuli");
-            namelist.Add("nornirds");
-            namelist.Add("elephantmule");
-            namelist.Add("knotgymnastics");
-            namelist.Add("mayorsordid");
-            namelist.Add("comedyEquivalent");
-            Random rand = new Random();
-            int num = rand.Next(0, 12);
-
-            Response.Write(namelist[num].ToString());*/
+            
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
