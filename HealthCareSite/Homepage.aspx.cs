@@ -144,5 +144,10 @@ namespace HealthCareSite
                 e.Row.TableSection = TableRowSection.TableHeader;
             }
         }
+
+        protected void btnCreateApp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CreateAppointment.aspx");
+        }
     }
 }
