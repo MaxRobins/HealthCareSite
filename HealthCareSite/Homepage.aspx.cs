@@ -27,7 +27,6 @@ namespace HealthCareSite
         SqlCommand objCommand = new SqlCommand();
         String userName = "";
         String userType = "";
-        string webApiUrl = "https://localhost:44347/api/User/";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -51,8 +50,6 @@ namespace HealthCareSite
             if (IsPostBack)
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Call", "pageLoad()", true);
-                 //gvRecords.HeaderRow.TableSection = TableRowSection.TableHeader;
-                 //gvAllDoctors.HeaderRow.TableSection = TableRowSection.TableHeader;
             }
           
 
@@ -85,7 +82,7 @@ namespace HealthCareSite
                 pnlDetails.Visible = true;
 
                 //use those values to determine which tables to show
-                string strSQL = "SELECT ID,FirstName, LastName, Doctor " +
+                string strSQL = "SELECT ID,FirstName, LastName, Doctor, Day, Time " +
                              "FROM Appointments";
 
                 //perform the sql query and get the dataset
@@ -159,6 +156,21 @@ namespace HealthCareSite
             {
                 //add the thead and tbody section programatically
                 e.Row.TableSection = TableRowSection.TableHeader;
+            }
+        }
+
+        protected void btnCreateApp_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void gvRecords_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument.ToString());
+
+            if (e.CommandName == "Details")
+            {
+                
             }
         }
     }
