@@ -71,6 +71,7 @@
     <Content Include="CreateAppointment.aspx" />
     <Content Include="CustomControls\ProfileControl.ascx" />
     <Content Include="getHint.asp" />
+    <Content Include="getstate.asp" />
     <Content Include="Homepage.aspx" />
     <Content Include="Images\defaultImage.png" />
     <Content Include="Login.aspx" />

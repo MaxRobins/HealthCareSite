@@ -26,7 +26,7 @@ namespace HealthCareSite
             userType = (string)Session["userType"];
             firstName = (string)Session["firstName"];
             lastName = (string)Session["lastName"];
-            appId = (int)Session["appId"];
+            //appId = (int)Session["appId"];
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
