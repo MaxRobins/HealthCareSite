@@ -16,14 +16,12 @@ namespace HealthCareSite
         SqlCommand objCommand = new SqlCommand();
         //string strSQL;
         String doctor = "";
-        int doctorId;
-        int appId;
+        int Id;
         protected void Page_Load(object sender, EventArgs e)
         {
             (this.Master as Master).SetNavBar();
-            doctor = (string)Session["Doctor"];
-            doctorId = (int)Session["DoctorId"];
-            appId = (int)Session["AppId"];
+            doctor = (string)Session["LastName"];
+            Id = (int)Session["Id"];
         }
 
         protected void btnHome_Click(object sender, EventArgs e)
@@ -36,28 +34,17 @@ namespace HealthCareSite
             objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "TP_CreateAppointment";
-
-            objCommand.Parameters.AddWithValue("@id", appId);
+            
             objCommand.Parameters.AddWithValue("@time", txtTime.Text);
             objCommand.Parameters.AddWithValue("@doctor", doctor);
             objCommand.Parameters.AddWithValue("@day", txtDay.Text);
-            objCommand.Parameters.AddWithValue("@doctorId", doctorId);
-
-            DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
-
-            Session["id"] = myDS.Tables[0].Rows[0]["Id"].ToString();
-            Session["doctor"] = myDS.Tables[0].Rows[0]["Doctor"].ToString();
-            Session["doctorId"] = myDS.Tables[0].Rows[0]["DoctorId"].ToString();
-
-
+            objCommand.Parameters.AddWithValue("@doctorId", Id);
+            
             int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
-
-            //Response.Redirect("Homepage.aspx");
-
+            
             if (returnValue > 0)
             {
                 lblDisplay.Text = "Appointment Was Added";
-                //Response.Redirect("restaurant.aspx");
             }
             else
             {
