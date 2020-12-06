@@ -45,7 +45,9 @@
 
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Profile</legend>
+
                     <uc1:UserControl runat="server" id="userControl" />
+
                 </fieldset>
                 <asp:Button ID="btnCreateApp" runat="server" Text="Add Appointment" OnClick="btnCreateApp_Click" />
             </div>
