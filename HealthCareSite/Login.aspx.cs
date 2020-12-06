@@ -45,7 +45,11 @@ namespace HealthCareSite
             Session["userType"] = myDS.Tables[0].Rows[0]["UserType"].ToString();
             Session["firstName"] = myDS.Tables[0].Rows[0]["FirstName"].ToString();
             Session["lastName"] = myDS.Tables[0].Rows[0]["LastName"].ToString();
-            Session["Id"] = myDS.Tables[0].Rows[0]["Id"].ToString();
+            Session["DoctorType"] = myDS.Tables[0].Rows[0]["LastName"].ToString();
+            Session["OfficeLocation"] = myDS.Tables[0].Rows[0]["LastName"].ToString();
+            Session["lastName"] = myDS.Tables[0].Rows[0]["LastName"].ToString();
+            Session["lastName"] = myDS.Tables[0].Rows[0]["LastName"].ToString();
+            Session["Id"] = int.Parse(myDS.Tables[0].Rows[0]["Id"].ToString());
             Response.Redirect("Homepage.aspx");
         }
         
