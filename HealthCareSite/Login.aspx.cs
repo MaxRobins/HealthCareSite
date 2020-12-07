@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utilities;
 
+
 namespace HealthCareSite
 {
     public partial class Login : System.Web.UI.Page
@@ -21,6 +22,7 @@ namespace HealthCareSite
             Session["userType"] = "";
             Session["firstName"] = "";
             Session["lastName"] = "";
+            
         }
 
         }
