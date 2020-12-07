@@ -22,6 +22,7 @@ namespace HealthCareSite
             Session["userType"] = "";
             Session["firstName"] = "";
             Session["lastName"] = "";
+            
         }
 
         }
