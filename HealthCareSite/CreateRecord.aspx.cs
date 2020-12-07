@@ -31,12 +31,23 @@ namespace HealthCareSite
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            string SaveLocation = "";
+
             if (txtFirstName.Text == "" || txtLastName.Text == "" || txtPhoneNumber.Text == "")
             {
                 return;
             }
             else
             {
+                if ((imgFile.PostedFile != null) && (imgFile.PostedFile.ContentLength > 0))
+                {
+                    string fn = System.IO.Path.GetFileName(imgFile.PostedFile.FileName);
+                    SaveLocation = Server.MapPath("Images") + "\\" + fn;
+                    
+                        imgFile.PostedFile.SaveAs(SaveLocation);
+                        
+                }
+                
                 objCommand.CommandType = System.Data.CommandType.StoredProcedure;
                 objCommand.CommandText = "TP_CreateRecord";
 
@@ -51,9 +62,20 @@ namespace HealthCareSite
                 objCommand.Parameters.AddWithValue("@levelOfPain", ddlPain.SelectedIndex);
                 objCommand.Parameters.AddWithValue("@gender", rblGender.SelectedValue);
                 objCommand.Parameters.AddWithValue("@dateOfBirth", txtDate.Text);
-                objCommand.Parameters.AddWithValue("@symptoms", cblSymptoms.SelectedValue);
+                objCommand.Parameters.AddWithValue("@imagePath", SaveLocation);
+
+                List<String> values = new List<String>();
+                foreach (ListItem item in cblSymptoms.Items)
+                {
+                    if (item.Selected)
+                        values.Add(item.Value);
+                }
+
+
+                objCommand.Parameters.AddWithValue("@symptoms", String.Join("," , values));
                 objCommand.Parameters.AddWithValue("@id", appId);
                 
+
                 int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
 
 

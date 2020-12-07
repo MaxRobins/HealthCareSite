@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <script type="text/javascript">
         function showHint(str) {
             if (str.length == 0) {
@@ -23,6 +24,7 @@
     <div class="d-flex justify-content-start flex-row p-2 mr-3 ml-3 mt-3">
         <div class="col-xl-6 p-2 mr-3 ml-3 mt-3">
             <div class="form-group">
+                <input type ="file" ID="imgFile" runat="server" />
                 <asp:Label ID ="lblFirstName" runat="server" Text="First Name" CssClass="p-2 mr-3 ml-3"></asp:Label>
                 <asp:TextBox ID ="txtFirstName" runat ="server"/>
             </div>
