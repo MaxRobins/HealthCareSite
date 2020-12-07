@@ -19,20 +19,32 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="d-flex justify-content-center">
+        
+        <div class="jumbotron text-xl-center"><div class="h2">HealthCare Site</div> </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-4"></div>
+                 <div class="col-4">
+                     <div class="h3">Login</div> <br />
+                    <uc1:LoginControl runat="server" id="LoginControl" />
+                 </div>
+                 <div class="col-4"></div>
+            </div>
+        </div>
+
+
+       <%-- <div class="d-flex justify-content-center">
             <div class="card" style="width:25rem">
                 <div class="card-body">
                     <h5 class="card-title">
                         Login
                     </h5>
                     <div class="form-group">
-
-                        <uc1:LoginControl runat="server" id="LoginControl" />
-
+                        
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--%>
     </form>
 </body>
 </html>
