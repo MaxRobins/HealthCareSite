@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthCareSite.Models;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -8,6 +9,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utilities;
+using System.Web.Script.Serialization;
+using System.IO;
+using System.Net;
 
 namespace HealthCareSite
 {
@@ -16,6 +20,7 @@ namespace HealthCareSite
         DBConnect objDB = new DBConnect();
         SqlCommand objCommand = new SqlCommand();
         string strSQL;
+        string webApiUrl = "https://localhost:44342/api/User/";
 
         
         protected void Page_Load(object sender, EventArgs e)
@@ -25,26 +30,16 @@ namespace HealthCareSite
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
+            
+            
             if (txtName.Text == "" || userType.SelectedIndex == -1 || txtPassword.Text == "")
             {
                 lblDisplay.Text = "Need to Enter a User Name, Pasword, and user type";
                 return;
             }
-            objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "TP_InsertUser";//stored procedure
 
-            objCommand.Parameters.AddWithValue("@userName", txtName.Text);
-            objCommand.Parameters.AddWithValue("@firstName", txtFirstName.Text);
-            objCommand.Parameters.AddWithValue("@lastName", txtLastName.Text);
-            objCommand.Parameters.AddWithValue("@userType", userType.Text);
-            objCommand.Parameters.AddWithValue("@email", txtEmail.Text);
-            objCommand.Parameters.AddWithValue("@userPassword", txtPassword.Text);
-            objCommand.Parameters.AddWithValue("@doctorType", txtDoctorType.Text);
-            objCommand.Parameters.AddWithValue("@officeLocation", txtOffice.Text);
-            objCommand.Parameters.AddWithValue("@phoneNumber", txtPhoneNumber.Text);
 
-            
-            if(userType.SelectedValue != "Doctor" && txtDoctorType.Text != "")
+            if (userType.SelectedValue != "Doctor" && txtDoctorType.Text != "")
             {
                 lblDisplay.Text = "Must be a Doctor to have a doctor type";
                 return;
@@ -66,17 +61,61 @@ namespace HealthCareSite
             }
 
 
-            int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
+            //create an object of the accounts class
+            Account account = new Account();
 
-            if (returnValue > 0)
+            //set the properties of the account with the values entered in the register page
+            account.Username = txtName.Text;
+            account.FirstName = txtFirstName.Text;
+            account.LastName = txtLastName.Text;
+            account.UserType = userType.Text;
+            account.Email = txtEmail.Text;
+            account.Password = txtPassword.Text;
+            account.DocorType = txtDoctorType.Text;
+            account.OfficeLocation = txtOffice.Text;
+            account.PhoneNumber = txtPhoneNumber.Text;
+
+            //
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            String jsonAccount = js.Serialize(account);
+
+            try
             {
-                //lblDisplay.Text = "User was added";
-                Response.Redirect("login.aspx");
+                WebRequest request = WebRequest.Create(webApiUrl + "CreateUser/");
+                request.Method = "POST";
+                request.ContentLength = jsonAccount.Length;
+                request.ContentType = "application/json";
+
+                StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                writer.Write(jsonAccount);
+                writer.Flush();
+                writer.Close();
+
+                WebResponse response = request.GetResponse();
+                Stream theDataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(theDataStream);
+                String data = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+
+
+                if (data == "true")
+                {
+                    //lblDisplay.Text = "User was added";
+                    Response.Redirect("login.aspx");
+                }
+                else
+                {
+                    lblDisplay.Text = "The user was not added";
+                }
+
             }
-            else
+
+            catch (Exception ex)
             {
-                lblDisplay.Text = "The user was not added";
+                lblDisplay.Text = "Error : " + ex.Message;
             }
+
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

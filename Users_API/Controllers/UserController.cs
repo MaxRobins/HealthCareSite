@@ -87,10 +87,37 @@ namespace Users_API.Controllers
         }
 
         [HttpPost]
-        public bool CreateUser(Account account)
+        [HttpPost("CreateUser")]//route: api/User/CreateUser
+        public bool CreateUser([FromBody]Account account)
         {
+            DBConnect objDB = new DBConnect();
+            SqlCommand objCommand = new SqlCommand();
 
-            return false;
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_InsertUser";//stored procedure
+
+            objCommand.Parameters.AddWithValue("@userName", account.Username);
+            objCommand.Parameters.AddWithValue("@firstName", account.FirstName);
+            objCommand.Parameters.AddWithValue("@lastName", account.LastName);
+            objCommand.Parameters.AddWithValue("@userType", account.UserType);
+            objCommand.Parameters.AddWithValue("@email", account.Email);
+            objCommand.Parameters.AddWithValue("@userPassword", account.Password);
+            objCommand.Parameters.AddWithValue("@doctorType", account.DocorType);
+            objCommand.Parameters.AddWithValue("@officeLocation", account.OfficeLocation);
+            objCommand.Parameters.AddWithValue("@phoneNumber", account.PhoneNumber);
+
+            int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
+
+            if (returnValue > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+
         }
 
     }
