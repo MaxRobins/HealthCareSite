@@ -54,7 +54,7 @@ namespace HealthCareSite
                              "<td>First Name</td>" +
                              "<td>Last Name</td>" +
                              "<td>Address</td>" +
-                             "<td>Symptoms</td>" +
+                             "<td>Symptons</td>" +
                              "<td>Phone Number</td>" +
                              "<td>Emial</td>" +
                              "<td>Description</td>" +
@@ -72,7 +72,7 @@ namespace HealthCareSite
                             "<td>" + datarow["FirstName"] + "</td>" +
                             "<td>" + datarow["LastName"] + "</td>" +
                             "<td>" + datarow["Address"] + "</td>" +
-                            "<td>" + datarow["Symptoms"] + "</td>" +
+                            "<td>" + datarow["Symptons"] + "</td>" +
                             "<td>" + datarow["PhoneNumber"] + "</td>" +
                             "<td>" + datarow["Email"] + "</td>" +
                             "<td>" + datarow["Description"] + "</td>" +
