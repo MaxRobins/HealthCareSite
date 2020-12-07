@@ -124,7 +124,7 @@ namespace HealthCareSite
 
                 gvRecords.DataBind();
 
-                gvRecords.HeaderRow.TableSection = TableRowSection.TableHeader;
+                //gvRecords.HeaderRow.TableSection = TableRowSection.TableHeader;
 
             }
 
@@ -198,14 +198,12 @@ namespace HealthCareSite
             if (e.CommandName == "Details")
             {
                 //Get the values from the selected row and show them in the reord details 
+                //Save the appointmentID to Session
+                int appointmentID = int.Parse(gvRecords.DataKeys[rowIndex].Value.ToString());
+                Session.Add("appointmentID", appointmentID);
 
-                //get the value for the first and last name
-                //if they are empty end it there
-
-
-
-
-
+                Response.Redirect("ViewAppointment.aspx");
+            
             }
         }
 

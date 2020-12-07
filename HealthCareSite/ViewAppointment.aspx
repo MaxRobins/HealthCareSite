@@ -8,7 +8,7 @@
             <div class="col">
                 <div class="h1">Appointment Details</div>
                 <br />
-                <div id="divDisplay"></div>
+                <div id="divDisplay" runat="server"></div>
 
             </div>
             <div class="col"></div>
