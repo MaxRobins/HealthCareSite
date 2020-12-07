@@ -49,22 +49,30 @@
                     <uc1:UserControl runat="server" ID="userControl" />
 
                 </fieldset>
-                <asp:Button ID="btnCreateApp" runat="server" Text="Add Appointment" OnClick="btnCreateApp_Click" />
+              
             </div>
-            <div class="col-auto">
-                <div class="container-fluid">
-                    <asp:Panel ID="pnlCard" runat="server">
+
+              <div class="col-auto">
+                <asp:Panel ID="pnlCard" runat="server">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Instructions</h5>
-                                <h4>Search For a Doctor</h4>
+                                <h4><asp:Label ID="lblInstructions" runat="server" Text="Label"></asp:Label></h4>
                                 <p class="card-text">
                                     <asp:Label ID="lblCard" runat="server" Text="Search the table for a doctor. You can Filter the table to find a specialist. Once you have found the doctor, you can hit the click the button to schedule an appointment"></asp:Label>
                                 </p>
                             </div>
                         </div>
                     </asp:Panel>
+                <br />
+                <asp:Panel ID="pnlCreateApp" runat="server">
+                  <asp:Button ID="btnCreateApp" runat="server" Text="Add Appointment" OnClick="btnCreateApp_Click" />
+                </asp:Panel>
+            </div>
 
+            <div class="col-auto">
+                <div class="container-fluid">
+                    
                     <br />
 
                     <div class="dtr-control">
@@ -103,82 +111,9 @@
 
                 </div>
             </div>
-            <div class="col-auto">
-                <%-- Panel for showing Appointment details after clicking --%>
-                <asp:Panel ID="pnlDetails" runat="server" Visible="false">
-                    <fieldset class="scheduler-border">
-                        <legend class="scheduler-border">Appointment Details</legend>
 
-                        <div class="container-fluid">
-                            <%-- Show the Initial Time and Date for the appointment --%>
-                            <div class="row">
-                                <div class="col">
-                                    <asp:Label ID="lblPatientFirst" runat="server" Text="First Name"></asp:Label><br />
-                                    <asp:TextBox ID="txtFirst" runat="server" ReadOnly="True"></asp:TextBox>
-                                </div>
-                                <div class="col">
-                                    <asp:Label ID="lblPatientLast" runat="server" Text="Last Name"></asp:Label><br />
-                                    <asp:TextBox ID="txtLast" runat="server" ReadOnly="True"></asp:TextBox>
-                                </div>
-                            </div>
+          
 
-                            <%-- Data from the record for appointment --%>
-                            <div class="row">
-                                <div class="col">
-                                    <asp:Label ID="lblDOB" runat="server" Text="Date of Birth"></asp:Label><br />
-                                    <asp:TextBox ID="txtDOB" runat="server" ReadOnly="True"></asp:TextBox>
-
-                                </div>
-                                <div class="col">
-                                    <asp:Label ID="lblGender" runat="server" Text="Gender"></asp:Label><br />
-                                    <asp:TextBox ID="txtGender" runat="server" ReadOnly="True"></asp:TextBox>
-
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                    <asp:Label ID="lblMail" runat="server" Text="Email "></asp:Label><br />
-                                    <asp:TextBox ID="txtMail" runat="server" ReadOnly="True"></asp:TextBox>
-
-                                </div>
-
-                                <div class="col">
-                                    <asp:Label ID="lblNumber" runat="server" Text="Phone Number "></asp:Label><br />
-                                    <asp:TextBox ID="txtNumber" runat="server" ReadOnly="True"></asp:TextBox>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                    <asp:Label ID="lblSymptons" runat="server" Text="Symptoms"></asp:Label><br />
-                                    <asp:TextBox ID="txtSymptoms" runat="server" ReadOnly="True"></asp:TextBox>
-                                </div>
-                                <div class="col">
-                                    <asp:Label ID="lblPainLevel" runat="server" Text="Level of Pain"></asp:Label><br />
-                                    <asp:TextBox ID="txtPain" runat="server" ReadOnly="True"></asp:TextBox>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-4"></div>
-                                <div class="col-4">
-                                    <asp:Button ID="btnEdit" runat="server" Text="Edit Appointment" />
-                                </div>
-                                <div class="col-4"></div>
-
-                            </div>
-
-                            <%-- End of Details data --%>
-                        </div>
-
-                    </fieldset>
-
-                </asp:Panel>
-            </div>
         </div>
         <%-- Bottom Row --%>
         <div class="row">

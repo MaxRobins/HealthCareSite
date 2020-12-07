@@ -101,8 +101,9 @@ namespace HealthCareSite
             {
                 //hide the table used for patients
                 pnlPatientTable.Visible = false;
-                pnlCard.Visible = false;
-                pnlDetails.Visible = true;
+                //set the values for the instructions panel
+                lblInstructions.Text = "View/Create appointments";
+                lblCard.Text = "All of your current appointments appear in the table below. Clicking the add aapointment button will allow you to add more available times";
                 userControl.setFirstName("Doctor Man");
 
                 //use those values to determine which tables to show
@@ -134,7 +135,12 @@ namespace HealthCareSite
                 //if the user is a patient then hide the doctor information
                 userControl.setDoctorInfoVisibility(false);
                 pnlDoctorTable.Visible = false;
-                btnCreateApp.Visible = false;
+
+                //set the values for the instructions panel
+                lblInstructions.Text = "Search Doctors";
+                lblCard.Text = "Search the table for a doctor. You can Filter the table to find a specialist. Once you have found the doctor, you can hit the click the button to schedule an appointment";
+                pnlCreateApp.Visible = false;
+
 
                 //use those values to determine which tables to show
                 string strSQL = "SELECT FirstName, LastName, DoctorType, OfficeLocation, Email, PhoneNumber, Id " +
