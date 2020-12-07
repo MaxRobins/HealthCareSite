@@ -202,20 +202,11 @@ namespace HealthCareSite
 
                 //get the value for the first and last name
                 //if they are empty end it there
-                String patientFirst = myDS.Tables[0].Rows[0]["FirstName"].ToString();
-                String patientLast = myDS.Tables[0].Rows[0]["LastName"].ToString();
 
 
-                if (patientFirst != "" && patientLast != "")
-                {
 
-                }
-                else
-                {
 
-                }
-                //Save the Appointments ID to Session
-                int doctorId = int.Parse(gvRecords.DataKeys[rowIndex].Value.ToString());
+
             }
         }
 

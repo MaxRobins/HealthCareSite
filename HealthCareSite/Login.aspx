@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="HealthCareSite.Login" %>
 
+<%@ Register Src="~/LoginControl.ascx" TagPrefix="uc1" TagName="LoginControl" %>
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -23,12 +26,9 @@
                         Login
                     </h5>
                     <div class="form-group">
-                        <label for="lblUserName">User Name:</label>
-                        <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
-                        <label for="lblPassword">Password:</label>
-                        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
-                        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="Login_Click" />
-                        <asp:Button ID="btnRegsiter" runat="server" Text="Register" OnClick="Regsiter_Click" />
+
+                        <uc1:LoginControl runat="server" id="LoginControl" />
+
                     </div>
                 </div>
             </div>
