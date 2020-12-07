@@ -14,7 +14,7 @@ namespace HealthCareSite
     {
         DBConnect objDB = new DBConnect();
         SqlCommand objCommand = new SqlCommand();
-        //string strSQL;
+        string strSQL;
         String doctor = "";
         int Id;
         protected void Page_Load(object sender, EventArgs e)

@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppDetails.aspx" />
     <Content Include="CreateRecord.aspx" />
     <Content Include="CreateAppointment.aspx" />
     <Content Include="getHint.asp" />
@@ -83,6 +84,13 @@
     <Content Include="ConfirmationPage.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppDetails.aspx.cs">
+      <DependentUpon>AppDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppDetails.aspx.designer.cs">
+      <DependentUpon>AppDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CreateRecord.aspx.cs">
       <DependentUpon>CreateRecord.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

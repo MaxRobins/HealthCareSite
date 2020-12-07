@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ConfirmationPage.aspx.cs" Inherits="HealthCareSite.WebForm1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="d-flex justify-content-start flex-row p-2 mr-3 ml-3 mt-3">
+   <div class="d-flex justify-content-start flex-row p-2 mr-3 ml-3 mt-3">
         <h1>Thank You For Scheduling an Appointment</h1>
         <table>
             <tr style="color:red;">
