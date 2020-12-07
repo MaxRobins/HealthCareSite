@@ -13,6 +13,15 @@ namespace HealthCareSite {
     public partial class CreateRecord {
         
         /// <summary>
+        /// imgFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile imgFile;
+        
+        /// <summary>
         /// lblFirstName control.
         /// </summary>
         /// <remarks>
