@@ -29,6 +29,7 @@ namespace HealthCareSite
         String userName = "";
         String userType = "";
         int userID = 0;
+        String strSQL = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -179,8 +180,51 @@ namespace HealthCareSite
                 
             }
         }
+        
+        /*public void GenerateDetailsTable(int AppId)
+        {
+            DataSet dsAppList;
+            DataTable dtAppointment;
+            DataRow drAppRecord;
 
-    
+            String strHTML = "";
+
+            strSQL = "SELECT * FROM TP_Records";
+            dsAppList = objDB.GetDataSet(strSQL);
+
+
+            objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetAppRecord";
+            //objCommand.Parameters.AddWithValue("@id", appId);
+            DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            strHTML = strHTML + "<table>" +
+                        "<tr>" +
+                        "<td> FirstName </td>" +
+                        "<td> LastName <td>" +
+                        "<td> DateOfBirth </td>" +
+                        "<td> Gender <td>" +
+                        "<td> EmailAddress </td>" +
+                        "<td> PhoneNumber <td>" +
+                        "<td> Symptons </td>" +
+                        "<td> LevelOfPain <td>" +
+                        "</tr>";
+           for(int row = 0; row < dtAppointment.Rows.Count; row++)
+            {
+                drAppRecord = dtAppointment.Rows[row];
+
+                strHTML = strHTML + "<tr>" + 
+                                    "<td>" + drAppRecord["FirstName"] + "</td>" +
+            }                       "<td>" + drAppRecord["LastName"] + "</td>" +
+                                    "<td>" + drAppRecord["DateOfBirth"] + "</td>" +
+                                    "<td>" + drAppRecord["Gender"] + "</td>" +
+                                    "<td>" + drAppRecord["EmailAddress"] + "</td>" +
+                                    "<td>" + drAppRecord["PhoneNumber"] + "</td>" +
+                                    "<td>" + drAppRecord["Symptons"] + "</td>" +
+                                    "<td>" + drAppRecord["LevelOfPain"] + "</td>" +
+                                    "</td>" + "</tr>";
+        }*/
         
     }
 }
