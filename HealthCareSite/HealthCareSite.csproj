@@ -165,10 +165,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Users_API\Users_API.csproj">
-      <Project>{3cbe902d-99e4-4284-9896-f826949fdd7b}</Project>
-      <Name>Users_API</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{7470d362-e62e-4902-9638-668c5ca44835}</Project>
       <Name>Utilities</Name>
