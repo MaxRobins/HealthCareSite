@@ -78,6 +78,7 @@
     <Content Include="Register.aspx" />
     <Content Include="ScheduleAppointment.aspx" />
     <Content Include="UserControl.ascx" />
+    <Content Include="ViewAppointment.aspx" />
     <Content Include="Web.config" />
     <Content Include="ConfirmationPage.aspx" />
   </ItemGroup>
@@ -152,6 +153,13 @@
     </Compile>
     <Compile Include="UserControl.ascx.designer.cs">
       <DependentUpon>UserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewAppointment.aspx.cs">
+      <DependentUpon>ViewAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewAppointment.aspx.designer.cs">
+      <DependentUpon>ViewAppointment.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
