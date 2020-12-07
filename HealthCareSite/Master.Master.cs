@@ -26,11 +26,22 @@ namespace HealthCareSite
 
             lblUserType.Text = userType;
             lblUserName.Text = userName;
+
+            if (userType == "Patient")
+            {
+                btnSetApp.Visible = false;
+            }
+
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx");
+        }
+
+        protected void btnSetApp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CreateAppointment.aspx");
         }
     }
 }
