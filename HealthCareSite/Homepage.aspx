@@ -46,7 +46,7 @@
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Profile</legend>
 
-                    <uc1:UserControl runat="server" id="userControl" />
+                    <uc1:UserControl runat="server" ID="userControl" />
 
                 </fieldset>
                 <asp:Button ID="btnCreateApp" runat="server" Text="Add Appointment" OnClick="btnCreateApp_Click" />
@@ -60,7 +60,7 @@
                                 <h4>Search For a Doctor</h4>
                                 <p class="card-text">
                                     <asp:Label ID="lblCard" runat="server" Text="Search the table for a doctor. You can Filter the table to find a specialist. Once you have found the doctor, you can hit the click the button to schedule an appointment"></asp:Label>
-                                    </p>
+                                </p>
                             </div>
                         </div>
                     </asp:Panel>
@@ -70,17 +70,22 @@
                     <div class="dtr-control">
 
                         <%-- Table for doctor page --%>
+
                         <asp:Panel ID="pnlDoctorTable" runat="server">
-                            <asp:GridView ID="gvRecords" runat="server" OnRowDataBound="gvRecords_RowDataBound" Width="456px" AutoGenerateColumns="False" OnRowCommand="gvRecords_RowCommand">
-                                <Columns>
-                                    <asp:BoundField DataField="FirstName" HeaderText="First Name" />
-                                    <asp:BoundField DataField="LastName" HeaderText="Last Name" />
-                                    <asp:BoundField DataField="Doctor" HeaderText="Doctor" />
-                                    <asp:BoundField DataField="Day" HeaderText="Day" />
-                                    <asp:BoundField DataField="Time" HeaderText="Time" />
-                                    <asp:ButtonField ButtonType="Button" CommandName="Details" Text="Details" />
-                                </Columns>
-                            </asp:GridView>
+
+                            <fieldset class="scheduler-border">
+                                <legend class="scheduler-border">My Appointments</legend>
+                                <asp:GridView ID="gvRecords" runat="server" OnRowDataBound="gvRecords_RowDataBound" Width="456px" AutoGenerateColumns="False" OnRowCommand="gvRecords_RowCommand">
+                                    <Columns>
+                                        <asp:BoundField DataField="FirstName" HeaderText="First Name" />
+                                        <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                                        <asp:BoundField DataField="Doctor" HeaderText="Doctor" />
+                                        <asp:BoundField DataField="Day" HeaderText="Day" />
+                                        <asp:BoundField DataField="Time" HeaderText="Time" />
+                                        <asp:ButtonField ButtonType="Button" CommandName="Details" Text="Details" />
+                                    </Columns>
+                                </asp:GridView>
+                            </fieldset>
                         </asp:Panel>
                         <%-- table for patient page --%>
                         <asp:Panel ID="pnlPatientTable" runat="server">
@@ -140,7 +145,7 @@
                                 </div>
 
                                 <div class="col">
-                                    <asp:Label ID="lblNumber" runat="server" Text="Phone Number "></asp:Label><br />  
+                                    <asp:Label ID="lblNumber" runat="server" Text="Phone Number "></asp:Label><br />
                                     <asp:TextBox ID="txtNumber" runat="server" ReadOnly="True"></asp:TextBox>
                                 </div>
 

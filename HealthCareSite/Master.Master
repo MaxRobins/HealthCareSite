@@ -34,6 +34,9 @@
                     <li class="nav-item">
                         <asp:Button ID="btnHome" runat="server" Text="Home"  Visible="true" CssClass="btn btn-light ml-2 mr-2" OnClick="btnHome_Click"></asp:Button>
                     </li>
+                    <li class="nav-item">
+                        <asp:Button ID="btnSetApp" runat="server" Text="Set Appointments"  Visible="true" CssClass="btn btn-light ml-2 mr-2" OnClick="btnSetApp_Click" ></asp:Button>
+                    </li>
 
                 </ul>
                 <div class="form-inline my-2 my-lg-0">

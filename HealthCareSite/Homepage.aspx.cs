@@ -28,6 +28,12 @@ namespace HealthCareSite
         SqlCommand objCommand = new SqlCommand();
         String userName = "";
         String userType = "";
+        String firstName = "";
+        String lastName = "";
+        String doctorType = "";
+        String officeLocation = "";
+        String email = "";
+        String phoneNumber = "";
         int userID = 0;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -41,7 +47,22 @@ namespace HealthCareSite
                 //get the User Name and User Type from the session storage
                 userName = (string)Session["userName"];
                 userType = (string)Session["userType"];
+                firstName = (string)Session["firstName"];
+                lastName = (string)Session["lastName"];
+                doctorType = (string)Session["DoctorType"];
+                officeLocation = (string)Session["OfficeLocation"];
+                email = (string)Session["Email"];
+                phoneNumber = (string)Session["PhoneNumber"];
                 userID = (int)Session["Id"];
+
+                //set the values for the profile
+                userControl.setFirstName(firstName);
+                userControl.setLastName(lastName);
+                userControl.setLocation(officeLocation);
+                userControl.setPhone(phoneNumber);
+                userControl.setType(doctorType);
+                userControl.setEmail(email); 
+
 
                 //set up the page
                 SetupPage();
@@ -87,7 +108,9 @@ namespace HealthCareSite
 
                 //use those values to determine which tables to show
                 string strSQL = "SELECT ID,FirstName, LastName, Doctor, Day, Time " +
-                             "FROM TP_Appointments";
+                             "FROM TP_Appointments " +
+                            "WHERE Doctor = '" + lastName + "'";
+                             
 
                 //perform the sql query and get the dataset
                 myDS = objDB.GetDataSet(strSQL);
@@ -111,7 +134,6 @@ namespace HealthCareSite
 
                 //if the user is a patient then hide the doctor information
                 userControl.setDoctorInfoVisibility(false);
-                userControl.setFirstName("Jimmy Jam");
                 pnlDoctorTable.Visible = false;
                 btnCreateApp.Visible = false;
 
@@ -176,7 +198,24 @@ namespace HealthCareSite
 
             if (e.CommandName == "Details")
             {
-                
+                //Get the values from the selected row and show them in the reord details 
+
+                //get the value for the first and last name
+                //if they are empty end it there
+                String patientFirst = myDS.Tables[0].Rows[0]["FirstName"].ToString();
+                String patientLast = myDS.Tables[0].Rows[0]["LastName"].ToString();
+
+
+                if (patientFirst != "" && patientLast != "")
+                {
+
+                }
+                else
+                {
+
+                }
+                //Save the Appointments ID to Session
+                int doctorId = int.Parse(gvRecords.DataKeys[rowIndex].Value.ToString());
             }
         }
 
