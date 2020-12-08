@@ -20,7 +20,7 @@ namespace HealthCareSite
         DataSet myDS;
         SqlCommand objCommand = new SqlCommand();
         int appointmentID;
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             appointmentID = (int)Session["appointmentID"];
@@ -30,7 +30,7 @@ namespace HealthCareSite
 
         public void createTable()
         {
-
+            
             //
             string strHTML = "";
 
@@ -58,15 +58,17 @@ namespace HealthCareSite
                              "<td>Phone Number</td>" +
                              "<td>Email Address</td>" +
                              "<td>Description</td>" +
+                             "<td>ImagePath</td>" +
                              "</tr>";
 
                 //
                 DataRow datarow;
+                
 
                 for (int row = 0; row < dataTable.Rows.Count; row++)
                 {
                     datarow = dataTable.Rows[row];
-
+                    
                     strHTML = strHTML  +
                            "<tr>" +
                             "<td>" + datarow["FirstName"] + "</td>" +
@@ -76,6 +78,7 @@ namespace HealthCareSite
                             "<td>" + datarow["PhoneNumber"] + "</td>" +
                             "<td>" + datarow["EmailAddress"] + "</td>" +
                             "<td>" + datarow["Description"] + "</td>" +
+                            "<td>" + datarow["ImagePath"] + "</td>" +
                             "</tr>";
 
                 }

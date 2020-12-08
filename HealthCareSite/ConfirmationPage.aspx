@@ -3,8 +3,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <div class="d-flex justify-content-start flex-row p-2 mr-3 ml-3 mt-3">
-        <h1>Thank You For Scheduling an Appointment</h1>
+    <style>
+        body{
+            background-color:aliceblue;
+        }
+        h1{
+            text-align:center;
+        }
+        td{
+            
+            padding:30px;
+            border-spacing:30px;
+            border-collapse:separate;
+        }
+        tr{
+            text-align:center;
+        }
+    </style>
+    <h1>Thank You For Scheduling an Appointment</h1>
+
+   <div class="d-flex justify-content-center flex-row p-2 mr-3 ml-3 mt-3">
         <table>
             <tr style="color:red;">
                 <th>First Name</th>
