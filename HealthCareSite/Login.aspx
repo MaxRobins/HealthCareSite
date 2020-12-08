@@ -33,18 +33,7 @@
         </div>
 
 
-       <%-- <div class="d-flex justify-content-center">
-            <div class="card" style="width:25rem">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        Login
-                    </h5>
-                    <div class="form-group">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>--%>
+
     </form>
 </body>
 </html>
