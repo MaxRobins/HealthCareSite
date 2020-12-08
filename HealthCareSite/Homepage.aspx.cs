@@ -97,7 +97,12 @@ namespace HealthCareSite
         //method for setting up the page layout based on the user type
         public void SetupPage()
         {
-            
+
+            if (userType == "Admin")
+            {
+                Server.Transfer("AdminPage.aspx");
+            }
+
             if (userType == "Doctor")
             {
                 //hide the table used for patients
