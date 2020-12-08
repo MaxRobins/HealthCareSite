@@ -27,7 +27,8 @@ namespace Users_API.Controllers
             SqlCommand objCommand = new SqlCommand();
 
             string strSQL = "SELECT * " +
-                "FROM TP_Users ";
+                "FROM TP_Users " + 
+                "WHERE UserType = 'Doctor' OR UserType = 'Patient'" ;
 
             DataSet myDS = objDB.GetDataSet(strSQL);
 
@@ -36,6 +37,7 @@ namespace Users_API.Controllers
             for (int i = 0; i < count; i++)
             {
                 Account user = new Account();
+                user.Username = objDB.GetField("Username", i).ToString();
                 user.FirstName = objDB.GetField("FirstName", i).ToString();
                 user.LastName = objDB.GetField("LastName", i).ToString();
                 user.ID = int.Parse(objDB.GetField("Id", i).ToString());
@@ -44,6 +46,7 @@ namespace Users_API.Controllers
                 user.DocorType = objDB.GetField("DoctorType", i).ToString();
                 user.OfficeLocation = objDB.GetField("OfficeLocation", i).ToString();
                 user.PhoneNumber = objDB.GetField("PhoneNumber", i).ToString();
+                user.Password = objDB.GetField("UserPassword", i).ToString();
 
                 userList.Add(user);
             }
