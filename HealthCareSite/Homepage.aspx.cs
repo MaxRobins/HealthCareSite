@@ -67,7 +67,6 @@ namespace HealthCareSite
                 //set up the page
                 SetupPage();
 
-                userControl.setPhone( "User Id: " + userID.ToString());
              
             }
 
@@ -110,7 +109,6 @@ namespace HealthCareSite
                 //set the values for the instructions panel
                 lblInstructions.Text = "View/Create appointments";
                 lblCard.Text = "All of your current appointments appear in the table below. Clicking the add aapointment button will allow you to add more available times";
-                userControl.setFirstName("Doctor Man");
 
                 //use those values to determine which tables to show
                 string strSQL = "SELECT ID,FirstName, LastName, Doctor, Day, Time " +
@@ -219,50 +217,7 @@ namespace HealthCareSite
             }
         }
         
-        /*public void GenerateDetailsTable(int AppId)
-        {
-            DataSet dsAppList;
-            DataTable dtAppointment;
-            DataRow drAppRecord;
-
-            String strHTML = "";
-
-            strSQL = "SELECT * FROM TP_Records";
-            dsAppList = objDB.GetDataSet(strSQL);
-
-
-            objCommand = new SqlCommand();
-            objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "TP_GetAppRecord";
-            //objCommand.Parameters.AddWithValue("@id", appId);
-            DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
-
-            strHTML = strHTML + "<table>" +
-                        "<tr>" +
-                        "<td> FirstName </td>" +
-                        "<td> LastName <td>" +
-                        "<td> DateOfBirth </td>" +
-                        "<td> Gender <td>" +
-                        "<td> EmailAddress </td>" +
-                        "<td> PhoneNumber <td>" +
-                        "<td> Symptons </td>" +
-                        "<td> LevelOfPain <td>" +
-                        "</tr>";
-           for(int row = 0; row < dtAppointment.Rows.Count; row++)
-            {
-                drAppRecord = dtAppointment.Rows[row];
-
-                strHTML = strHTML + "<tr>" + 
-                                    "<td>" + drAppRecord["FirstName"] + "</td>" +
-            }                       "<td>" + drAppRecord["LastName"] + "</td>" +
-                                    "<td>" + drAppRecord["DateOfBirth"] + "</td>" +
-                                    "<td>" + drAppRecord["Gender"] + "</td>" +
-                                    "<td>" + drAppRecord["EmailAddress"] + "</td>" +
-                                    "<td>" + drAppRecord["PhoneNumber"] + "</td>" +
-                                    "<td>" + drAppRecord["Symptons"] + "</td>" +
-                                    "<td>" + drAppRecord["LevelOfPain"] + "</td>" +
-                                    "</td>" + "</tr>";
-        }*/
+       
         
     }
 }
