@@ -2,7 +2,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+    <style>
+        h1{
+            text-align:center;
+        }
+        p{
+            text-align:center;
+        }
+        body{
+            background-color:azure;
+        }
+    </style>
+    <h1>Schedule Your Appoinment</h1>
+    <p>Below are the times this doctor has available</p>
     <asp:GridView ID="gvAppointments" runat="server" AutoGenerateColumns="False" CssClass="ml-auto mr-auto" 
        OnRowEditing="gvAppointments_RowEditing" OnRowCancelingEdit = "gvAppointments_RowCancelingEdit" 
         OnRowUpdating ="gvAppointments_RowUpdating" DataKeyNames ="Id" OnRowCommand="gvAppointments_RowCommand" OnSelectedIndexChanged="gvAppointments_SelectedIndexChanged1">
