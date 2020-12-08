@@ -61,7 +61,7 @@
                 <asp:DropDownList id="ddlPain"
                     runat="server">
                   <asp:ListItem Value="0">0</asp:ListItem>
-                  <asp:ListItem Value="1">2</asp:ListItem>
+                  <asp:ListItem Value="1">1</asp:ListItem>
                   <asp:ListItem Value="2">2</asp:ListItem>
                   <asp:ListItem Value="3">3</asp:ListItem>
                   <asp:ListItem Value="4">4</asp:ListItem>
